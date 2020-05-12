@@ -1,0 +1,198 @@
+
+
+@model MusteriAddModel
+
+@{
+    
+    ViewBag.Title = "title";
+    Layout = "_AdminLayout";
+}
+@if (TempData["sonuc"] == "0")
+ {
+     <div class="alert alert-success" role="alert" >
+      Abone Başarılı Bir Şekilde Güncellendi.
+     </div>
+ }
+ else if (TempData["sonuc"] == "1")
+ {
+     <div class="alert alert-danger" role="alert">
+         Abone Güncellenemedi Tekrar Deneyiniz.
+     </div>
+ }
+<!--
+<div class="container">
+    <div class="container row">
+        <div class="col-md-8"> <h4 class="text-primary"> Abone Güncelleme Menüsü </h4> </div>
+        <div class="col-md-4">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Abone No Giriniz" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Arama</button>
+            </form>
+        </div>
+    </div>
+</div>
+-->
+<div class="container" >
+    <form asp-controller="Admin" asp-action="AboneGuncelle">
+        <div class="form-row">
+            <div class="col-md-6">
+                    
+                <h6 class="text-center">Abonelik Bilgileri</h6>
+                                
+                <div class="form-group ">
+                                
+                    <label for="">Abone No:</label>
+                    <input asp-for="musteri.AboneNo" class="form-control" >
+                    <span asp-validation-for="musteri.AboneNo" ></span>
+                </div>
+                                
+                <div class="form-group">
+                    <label for="">Tc. Kimlik No:</label>
+                                
+                    <input asp-for="musteri.MusteriTcNo" class="form-control">
+                    <span asp-validation-for="musteri.MusteriTcNo" ></span>
+                                
+                </div>
+                                
+                <div class="form-group ">
+                    <label for="">Ad Soyad:</label>
+                    <input asp-for="musteri.Kimlik" class="form-control" >
+                    <span asp-validation-for="musteri.MusteriTcNo" ></span>
+                </div>
+                                
+                <div class="form-group ">
+                    <label for="">Sabit Numara:</label>
+                    <input asp-for="musteri.EvTel" class="form-control" >
+                </div>
+                                
+                                
+                <div class="form-group ">
+                    <label for="">Cep Telefonu-1:</label>
+                    <input asp-for="musteri.CepTel" class="form-control" >
+                    <span asp-validation-for="musteri.CepTel" ></span>
+                </div>
+                                
+                <div class="form-group">
+                    <label for="">Adres</label>
+                    <input asp-for="musteri.Adres" class="form-control" >
+                    <span asp-validation-for="musteri.Adres" ></span>
+                </div>                           
+                                
+                                
+                <div class="form-group">
+                    <label for="">İlçe</label>
+                    <input asp-for="musteri.AdresIlce" class="form-control" >
+                    <span asp-validation-for="musteri.AdresIlce" ></span>
+                </div>
+                                
+                <div class="form-group">
+                    <label for="">İl</label>
+                    <input asp-for="musteri.AdresIl" class="form-control" >
+                    <span asp-validation-for="musteri.AdresIl" ></span>
+                </div>
+                                
+            </div>
+            <div class="col-md-6">
+                    
+                <h6 class="text-center">Aranacak Birinci Kişi</h6>
+                <div class="form-group">
+                    <label>Adı Soyadı</label>
+                    <input class="form-control" asp-for="Aranacaklars[0].kimlik" />
+                    <span asp-validation-for="Aranacaklars[0].kimlik"></span>
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası-1</label>
+                    <input class="form-control" asp-for="Aranacaklars[0].ceptel" />
+                    <span asp-validation-for="Aranacaklars[0].ceptel"></span>
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası-2 </label>
+                    <input class="form-control" asp-for="Aranacaklars[0].ceptel2" />
+                </div>
+    
+                <h6 class="text-center">Aranacak İkinci Kişi</h6>
+                <div class="form-group">
+                    <label>Adı Soyadı</label>
+                    <input class="form-control" asp-for="Aranacaklars[1].kimlik" />
+                    <span asp-validation-for="Aranacaklars[1].kimlik"></span>
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası-1</label>
+                    <input class="form-control" asp-for="Aranacaklars[1].ceptel" />
+                    <span asp-validation-for="Aranacaklars[1].ceptel"></span>
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası-2 </label>
+                    <input class="form-control" asp-for="Aranacaklars[1].ceptel2" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Alarm Cihazı Markası</label>
+                            <input asp-for="musteri.ChMarka" class="form-control" >
+                            <span asp-validation-for="musteri.ChMarka" ></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Alarm Cihazı Modeli</label>
+                            <input asp-for="musteri.ChModel" class="form-control" >
+                            <span asp-validation-for="musteri.ChModel" ></span>
+                        </div>
+                    </div>
+                </div>        
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">İletişim Türü</label>
+                            <input asp-for="musteri.HaberlesmeTuru" class="form-control" >
+                            <span asp-validation-for="musteri.HaberlesmeTuru" ></span>
+                        </div>
+                    </div>
+    
+    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Garanti Süresi</label>
+                            <input asp-for="musteri.ChGarantiSuresi" class="form-control" >
+                            <span asp-validation-for="musteri.ChGarantiSuresi" ></span>
+                        </div>
+                    </div>
+    
+    
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Abonelik Başlangıç Tarihi</label>
+                            <input asp-for="musteri.AboneBasTarihi" class="form-control" placeholder="20-12-2020" >
+                            <span asp-validation-for="musteri.AboneBasTarihi" ></span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Abonelik Bitiş Tarihi</label>
+                            <input asp-for="musteri.AboneBitTarihi" class="form-control" placeholder="20-12-2021" >
+                            <span asp-validation-for="musteri.AboneBitTarihi" ></span>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                    
+                    
+            </div>
+         
+        </div>
+        <input type="hidden" asp-for="musteri.MusteriId"/>
+        <input type="hidden" asp-for="Aranacaklars[0].aranacakId"/>
+        <input type="hidden" asp-for="Aranacaklars[1].aranacakId"/>
+        <input type="hidden" asp-for="Aranacaklars[0].aboneNo"/>
+        <input type="hidden" asp-for="Aranacaklars[1].aboneNo"/>
+        
+        <button class="btn btn-success text-center" type="submit">Bilgileri Güncelle</button>
+    </form>
+    
+    </div>

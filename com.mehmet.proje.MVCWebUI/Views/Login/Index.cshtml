@@ -1,0 +1,188 @@
+@model LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Sistem Giriş</title>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h2> ALARM İZLEME MERKEZİNE HOŞ GELDİNİZ </h2>
+    </div>
+
+
+
+    <div class="container col-md-6">
+        <form asp-controller="Login" asp-action="Index">
+
+            <div class="form-group">
+                <div class="form-group-row text-center">
+                    <label class=" col-md-3 col-from-label">Kullanıcı</label>
+                    <input asp-for="aboneNo" class="col-md-4 col-from-plaintext"
+                        placeholder="Size verilen Kullanıcı Kodu" required="Bu Alan Boş Geçilemez"><br>
+                </div>
+                <div class="form-group-row text-center">
+                    <label class="col-from-label col-md-3">Parola</label>
+                    <input asp-for="parola" type="password" class="col-from-plaintext col-md-4" required="Parola Bilgisini Giriniz"><br>
+
+                </div>
+
+                <div class="form-group-row text-center">
+                    <label class="col-from-label col-md-3">Kullanıcı Türü</label>
+                    <select asp-for="kullaniciTur" asp-items="Model.kullaniciTurler" class="form-control col-md-4"
+                            style="display: inline;">
+                        <!--
+                        <option value="">Muşte3333ri</option>
+                        <option value="">Admin</option>
+                        <option value="">Operatör</option>
+                        -->
+                    </select>
+                </div>
+            </div>
+            <!--
+            <div class="form-group-row text-center">
+                <div class="form-check-inline col-md-3">
+                    <label class="form-check-label ">
+                        <input type="checkbox" class="form-check-input" name="hatirla" id="hatirla" value="checkedValue">
+                        Beni Hatırla
+                    </label>
+                </div>
+                <div class="col-md-3" style="display: inline;" >
+                    <a href="">Şifremi Unuttum</a> 
+                </div>
+
+            </div>
+            -->
+            <br>
+            <div class="text-center">
+                
+                <button class="btn btn-success col-md-6" type="submit" >GİRİŞ YAP</button>
+                <!--
+                <input type="submit" class="btn btn-success col-md-6" name="" id="login" value="LOGİN">
+                         <button class="btn btn-secondary col-md-4" type="reset" id="reset">İptal</button>
+                    -->
+    
+    
+    
+                </div>
+
+
+
+
+            <!-- açılır menü örnek
+
+                 <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" type="button">MENÜ</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item">veri</a>
+                    <a class="dropdown-item">veri</a>
+                    <a class="dropdown-item">veri</a>
+                </div>
+            </div>
+
+
+            -->
+
+
+
+
+            <!--
+                <div class="form-group form-check-inline">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="as" id="" value="checkedValue">
+                    Beni Hatırla
+                </label>
+            </div>
+            <div class="form-group form-check-inline">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="as" id="" value="checkedValue">
+                    Beni Hatırla
+                </label>
+            </div>
+
+
+            -->
+
+
+
+
+
+          
+
+
+
+        </form>
+    </div>
+
+
+<!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>colon 1</h2>
+                <p>deneme yaz bakalım deneme yaz bakalı deneme yaz bakalı deneme yaz bakalı deneme yaz bakalı </p>
+            </div>
+            <div class="col-md-3">
+                <h2>colon 2</h2>
+                <p>deneme yaz bakalım deneme yaz bakalı deneme yaz bakalı deneme yaz bakalı deneme yaz bakalı </p>
+            </div>
+            <div class="col-md-5">
+                <h2>colon 3</h2>
+                <p>deneme yaz bakalım deneme yaz bakalı deneme yaz bakalı deneme yaz bakalı deneme yaz bakalı </p>
+            </div>
+
+        </div>
+        <div class="row">
+            <!-- table-borderless çizgileri siler table-dark tabloyu dark yapar -->
+            <table class="table table-striped table-hover table-borderless">
+                <thead>
+                    <tr>
+                        <td>Sinyal İd</td>
+                        <td>Sinyal Saati</td>
+                        <td>Sinyal Türü</td>
+                        <td>Sinyal Açıklama</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-danger">
+                        <td>2</td>
+                        <td>23:00</td>
+                        <td>E566</td>
+                        <td>Sinyal işlendi</td>
+                    </tr>
+                    <tr class="table-success">
+                        <td>3</td>
+                        <td>23:00</td>
+                        <td>E566</td>
+                        <td>Sinyal işlendi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

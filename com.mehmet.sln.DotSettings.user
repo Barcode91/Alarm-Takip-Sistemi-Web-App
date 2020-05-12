@@ -1,0 +1,84 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;Assembly Path="/home/memo/.nuget/packages/fluentnhibernate/2.1.2/lib/netcoreapp2.0/FluentNHibernate.dll" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=00048865_002D85a6_002D4cd5_002D94f4_002D56e5fce829c7/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="Test1 #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.Test1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=22018fee_002Db029_002D4584_002Da71f_002D94d2aab19a58/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="Tests" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=75408f45_002De9b8_002D43ce_002D8a81_002Daf2b0cc7669e/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="Test1" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c6793bb8_002D1bd0_002D4748_002D9b0e_002D1f047567f5c6/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="logintest #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.logintest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc84294d_002D17a1_002D4428_002D9c99_002D3a28b005c04e/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="gettest" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.gettest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dabe0810_002Ded22_002D484b_002D8f59_002Debc50dece9d3/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="Test1 #3" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2962db6_002Dacf6_002D4e0e_002D8a88_002Db6e4dc1fc31b/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="logintest" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.logintest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fa178792_002Df521_002D4417_002D9f68_002De5619f00115e/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="UpdateTEst" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;Or&gt;
+    &lt;Or&gt;
+      &lt;TestAncestor&gt;
+        &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.UpdateTEst&lt;/TestId&gt;
+      &lt;/TestAncestor&gt;
+      &lt;TestAncestor&gt;
+        &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.logintest&lt;/TestId&gt;
+      &lt;/TestAncestor&gt;
+    &lt;/Or&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.Test1&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+  &lt;/Or&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fbbc8f89_002Dc6e4_002D4d83_002Dbc10_002D9ca6eee0b18a/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="UpdateTEst #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;Or&gt;
+    &lt;Or&gt;
+      &lt;Or&gt;
+        &lt;TestAncestor&gt;
+          &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.UpdateTEst&lt;/TestId&gt;
+        &lt;/TestAncestor&gt;
+        &lt;TestAncestor&gt;
+          &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.logintest&lt;/TestId&gt;
+        &lt;/TestAncestor&gt;
+      &lt;/Or&gt;
+      &lt;TestAncestor&gt;
+        &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.gettest&lt;/TestId&gt;
+      &lt;/TestAncestor&gt;
+    &lt;/Or&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.Test1&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+  &lt;/Or&gt;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</wpf:ResourceDictionary>

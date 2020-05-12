@@ -1,0 +1,394 @@
+
+@using com.mehmet.oracle.entities.BaseClasses
+@model OperaTorModel
+
+@{
+    Layout="_OperatorLayout";
+    string aboneNo;
+    var sayac = 1;
+ 
+ //<a class="btn btn-success" asp-controller="Operator" asp-action="SinyalIslem" asp-route-id="@sinyal.SinyalId" asp-route-aboneNo="@sinyal.AboneNo">işlem Yap</a>   
+   
+    
+    
+    
+    
+}
+@if (!string.IsNullOrEmpty((string)TempData["info"]))
+{
+    <script> alert(@TempData["info"]) </script>
+}
+
+ <style type="text/css">
+        .par {
+            display: inline;
+        }
+
+        div.b {
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+
+        h3.renk {
+            color: royalblue;
+
+        }
+    </style>
+    
+
+    <br>
+<div class="container-fluid">
+<div class="tab-content">
+<div class="tab-pane" id="kimlik">
+    <div class="container col-md-6">
+        <h2 class="text-danger"> Kimlik Bilgileri </h2>
+        <br>
+        <form asp-controller="" asp-action="">
+            <div class="form-group">
+                <label for="">Tc. Kimlik No:</label>
+                <input type="text" class="form-control" asp-for="personel.PersonelTcNo" disabled>
+                <span asp-validation-for="personel.PersonelTcNo"></span>
+            </div>
+            <div class="form-group">
+                <label for="">Ad Soyad:</label>
+                <input type="text" class="form-control" asp-for="personel.Kimlik" disabled>
+                <span asp-validation-for="personel.Kimlik"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Cep Telefonu</label>
+                <input type="text" class="form-control" asp-for="personel.CepTel" disabled>
+                <span asp-validation-for="personel.CepTel"></span>
+            </div>
+            <div class="form-group">
+                <label for="">İşe Bağlangıç Tarihi</label>
+                <input type="text" class="form-control" asp-for="personel.IseBasTarihi" disabled>
+                <span asp-validation-for="personel.IseBasTarihi"></span>
+            </div>
+            <div class="form-group">
+                <label for="">Görev Türü</label>
+                <input type="text" class="form-control" asp-for="personel.GorevTur" disabled>
+                <span asp-validation-for="personel.GorevTur"></span>
+            </div>
+            <input type="hidden" asp-for="personel.PersonelId"/>
+            <input type="hidden" asp-for="personel.Parola"/>
+            <input type="hidden" asp-for="personel.CalismaDurumu"/>
+
+
+            <button id="update" class="btn btn-success" style="display: none"> Değişikiği Kaydet </button>
+
+
+        </form>
+        <div class="form-row">
+            <div class="col-md-3"> <button id="btno" onclick="disable()" class="btn btn-success"> Bilgileri Güncelle </button> </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="tab-pane" id="parola">
+    <div class="container col-md-4">
+        <h3>Parola Değişikliği İşlemleri</h3>
+        <form action="">
+
+            <div class="form-group">
+                <label for="">Yeni Parolanızı Giriniz</label>
+                <input class="form-control" type="password" name="sifre" id="sifre" required
+                       placeholder="Şifreniz en az 8 karakter olmalı">
+            </div>
+            <div class="form-group">
+                <label for="">Parolayı Tekrar Giriniz</label>
+                <input class="form-control" type="password" name="sifrecont" id="sifrecont" required>
+            </div>
+            <input type="submit" class="btn btn-success" name="" id="" value="Gönder">
+
+
+
+        </form>
+
+
+    </div>
+
+
+
+
+</div>
+<div class="tab-pane active" id="sinyaller">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-sm" id="tablolar">
+            <thead class="thead">
+            <td>#</td>
+            <td>Abone No</td>
+            <td>Sinyal Tarihi</td>
+            <td>Sinyal Saati</td>
+            <td>Sinyal Kodu</td>
+            <td>Bölge No</td>
+            <td>Sinyal Tanım</td>
+            </thead>
+            <tbody style="cursor: pointer;">
+            @foreach (var sinyal in Model.Sinyallers)
+            {
+                Musteri mbilgi = null;
+                foreach (var musteri in Model.TamMusteris)
+                {
+                    if (musteri._musteri.AboneNo == sinyal.AboneNo)
+                    {
+                        mbilgi = musteri._musteri;
+                    }
+                }
+                <tr>
+                    <td>@sayac</td>
+                    <td>@sinyal.AboneNo</td>
+                    <td>@sinyal.SinyalTarih</td>
+                    <td>@sinyal.SinyalSaat</td>
+                    <td>@sinyal.SinyalKod</td>
+                    <td>@sinyal.Bolum</td>
+                    <td>@sinyal.SinyalTAnim</td>
+                    <td>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#musteriAyrinti"
+                                onclick="getModal('@sinyal.AboneNo',@sinyal.SinyalId)">işlem Yap</button> </td>
+
+                </tr>
+                sayac = sayac + 1;
+            }
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+ 
+
+
+
+</div>
+</div>
+</div>
+<div class="modal fade" id="musteriAyrinti" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sinyal Bildirim İşlemi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="b container">
+                  <h5 class="text-danger"> Abone Bilgileri </h5>
+              <div class="form form-row">
+                      <div class="form-col-2">
+                          
+                          <div class="form-group ">
+                              <label for="">Abone No:</label>
+                              <input id="abone" class="form-control" disabled>
+
+                          </div>
+                          <div class="form-group">
+                              <label for="">Tc. Kimlik No:</label>
+                              <p id="tcno" class="form-control"></p>
+
+                          </div>
+                          <div class="form-group ">
+                              <label for="">Ad Soyad:</label>
+                              <p id="adsoyad" class="form-control"></p>
+
+                          </div>
+                      </div>
+                      <div class="form-col-2">
+                          
+                          <div class="form-group ">
+                              <label for="">Sabit Numara:</label>
+                              <input id="evtel" class="form-control" disabled>
+
+                          </div>
+                          <div class="form-group ">
+                              <label for="">Cep Telefonu-1:</label>
+                              <p id="ceptel" class="form-control"></p>
+
+                          </div>
+                          <div class="form-group ">
+                              <label for="">Cep Telefonu-2:</label>
+                              <p id="" class="form-control"></p>
+
+                          </div>
+                      </div>
+                      <div class="form-col-5">
+                          
+                          <div class="form-group">
+                              <label for="">Adres</label>
+                              <input id="adres" class="form-control" disabled>
+
+                          </div>
+                          <div class="form-group">
+                              <label for="">İlçe</label>
+                              <p id="ilce" class="form-control"></p>
+
+                          </div>
+                          <div class="form-group">
+                              <label for="">İl</label>
+                              <p id="il" class="form-control"></p>
+
+                          </div>
+                      </div>
+                      
+                      <div class="form-col-3">
+                          
+                          <div class="form-group">
+                              <label for="">Cihaz Marka</label>
+                              <input id="marka" class="form-control" disabled>
+
+                          </div>
+                          <div class="form-group">
+                              <label for="">Cihaz Model</label>
+                              <p id="model" class="form-control"></p>
+
+                          </div>
+                          <div class="form-group">
+                              <label for="">Garanti Süresi</label>
+                              <p id="garanti" class="form-control"></p>
+
+                          </div>
+                      </div>                       
+                  </div>                  
+                  <h5 class="text-center">Aranacak Kişiler</h5>
+                  <div class="table-responsive ">
+                      <table class="table table-sm table-striped table-hover say">
+                          <thead>
+                          <tr>
+                              <td>Öncelik</td>
+                              <td>Adı Soyadı</td>
+                              <td>Cep Telefonu 1</td>
+                              <td>Cep Telefonu 2</td>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>1.</td>
+                              <td id="kimlikbir"></td>
+                              <td id="cepbir" ></td>
+                              <td id="cepiki"></td>
+                          </tr>
+                          <tr>
+                              <td>2.</td>
+                              <td id="kimlikiki"></td>
+                              <td id="cepbiriki" ></td>
+                              <td id="cepikiiki"></td>
+                              
+                          </tr>
+                          </tbody>
+
+
+                      </table>
+
+                  </div>
+
+                    <form asp-controller="Operator" asp-action="SinyalIslem" method="post">
+                      <div class="form-row">
+                          <input id="siyalid" type="hidden" name="id"/>                          
+                          <input type="hidden" asp-for="personel.Kimlik" name="operatorKimlik"/>  
+                          <input type="hidden" asp-for="personel.PersonelId" name="opId"/>
+                          <div class="form-group col-md-10">
+                              <label for=""> <strong>Sinyale Yapılan İşlem</strong> </label>
+                              <input class="form-control" type="text" name="islem" id="islem" placeholder="Yaptığınız İşlemi Giriniz" required>
+                          </div>
+                          <div class="form-group col-md-2">
+                             
+                              <button class="btn btn-success form-control mt-4" type="submit">Gönder</button>
+
+                          </div>
+                      </div>
+
+
+                  </form>
+              </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function getModal(param, id) {
+
+  $.post("https://localhost:5001/Operator/MusteriDetay", //post isteği atılır dönen json verisi modale yerleştirilir
+  {
+    aboneNo: param
+   
+  },
+  function(data, status){
+       document.getElementById("abone").value=data.musteri.aboneNo;
+       document.getElementById("adsoyad").innerHTML=data.musteri.kimlik;
+       document.getElementById("tcno").innerHTML=data.musteri.musteriTcNo;
+       document.getElementById("adres").value=data.musteri.adres;
+            document.getElementById("il").innerHTML=data.musteri.adresIl;
+            document.getElementById("ilce").innerHTML=data.musteri.adresIlce;
+            document.getElementById("evtel").value=data.musteri.evTel;
+            document.getElementById("ceptel").innerHTML=data.musteri.cepTel;
+            document.getElementById("marka").value=data.musteri.chMarka;
+             document.getElementById("model").innerHTML=data.musteri.chModel;             
+              document.getElementById("garanti").innerHTML=data.musteri.chGarantiSuresi;
+               document.getElementById("kimlikbir").innerHTML=data.aranacaklars[0].kimlik;
+               document.getElementById("cepbir").innerHTML=data.aranacaklars[0].ceptel;
+               document.getElementById("cepiki").innerHTML=data.aranacaklars[0].ceptel2;
+               document.getElementById("kimlikiki").innerHTML=data.aranacaklars[1].kimlik;
+               document.getElementById("cepbiriki").innerHTML=data.aranacaklars[1].ceptel;
+               document.getElementById("cepbiriki").innerHTML=data.aranacaklars[1].ceptel2;
+               document.getElementById("siyalid").value=id;
+               
+              
+      
+      
+    alert("Data: " + data.musteri.kimlik + data.aranacaklars[0].kimlik + id +"\nStatus: " + status);
+  },"json");
+
+
+
+
+
+
+
+    
+}
+
+
+
+
+
+
+
+
+function disable() {
+    $( "input" ).prop( "disabled", false );
+    document.getElementById("update").style.display="inline";
+    document.getElementById("btno").style.display="none";
+      
+}
+function gonder(abone,tc,kimlik,adres,il,ilce,ceptel,evtel,model,marka,garanti) {
+    alert();
+      
+   document.getElementById("abone").innerHTML=abone;
+     document.getElementById("adsoyad").innerHTML=kimlik;
+      document.getElementById("tcno").innerHTML=tc;
+      document.getElementById("adres").innerHTML=adres;
+      document.getElementById("il").innerHTML=il;
+      document.getElementById("ilce").innerHTML=ilce;
+      document.getElementById("evtel").innerHTML=evtel;
+      document.getElementById("ceptel").innerHTML=ceptel;
+      document.getElementById("marka").innerHTML=marka;
+       document.getElementById("model").innerHTML=model;
+        document.getElementById("garanti").innerHTML=garanti;
+
+      
+     
+   
+  
+}
+
+</script>
+
+

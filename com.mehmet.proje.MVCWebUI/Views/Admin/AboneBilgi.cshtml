@@ -1,0 +1,213 @@
+@model MusteriModel
+
+@{var sayac=1;
+  var kimlik = Model.MusteriBilgiler;
+  var sinyaller = Model.MusteriSinyaller;
+  var aranacak = Model.Aranacaklars;
+    
+    Layout = "_AdminLayout";
+}
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+    Abone Ayrıntıları için Tıklayınız
+  </button>
+
+  <!-- Modal -->
+<div class="modal fade bd-example-modal-xl" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Ayrıntılı Abone Bilgileri</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+            
+             
+          <div class="container">
+            <h2 class="text-danger"> Abonelik Bilgileri </h2>
+            <br>
+
+            <h3 class="text-center"> Kimlik Bilgileri </h3>
+            <div class="b form-row">
+              <div class="form-group col-md-2">
+                <label for="">Abone No:</label>
+                <p class="form-control">@kimlik.AboneNo</p>
+
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Tc. Kimlik No:</label>
+                <p class="form-control">@kimlik.MusteriTcNo</p>
+
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Ad Soyad:</label>
+                <p class="form-control">@kimlik.Kimlik</p>
+
+              </div>
+            </div>
+            <br>
+            <h3 class="text-center"> Adres Bilgileri </h3>
+            <div class="b form-row">
+              <div class="form-group col-md-8">
+                <label for="">Adres</label>
+                <p class="form-control">@kimlik.Adres</p>
+
+              </div>
+              <div class="form-group col-md-2">
+                <label for="">İlçe</label>
+                <p class="form-control">@kimlik.AdresIlce</p>
+
+              </div>
+              <div class="form-group col-md-2">
+                <label for="">İl</label>
+                <p class="form-control">@kimlik.AdresIl</p>
+
+              </div>
+            </div>
+            <br>
+            <h3 class="text-center"> İletişim ve Abonelik Bilgileri </h3>
+            <div class="b form-row">
+              <div class="form-group col-md-2">
+                <label for="">Sabit Numara</label>
+                <p class="form-control">@kimlik.EvTel</p>
+
+              </div>
+              <div class="form-group col-md-2">
+                <label for="">Cep Telefonu-1</label>
+                <p class="form-control">@kimlik.CepTel</p>
+
+              </div>
+              <div class="form-group col-md-2">
+                <label for="">Cep Telefonu-2</label>
+                <p class="form-control">@kimlik.CepTel</p>
+
+              </div>
+              <div class="form-group col-md-3">
+                <label for="">Abonelik Bağlangıç Tarihi</label>
+                <p class="form-control">@kimlik.AboneBasTarihi</p>
+
+              </div>
+              <div class="form-group col-md-3">
+                <label for="">Abonelik Bitiş Tarihi</label>
+                <p class="form-control">@kimlik.AboneBitTarihi</p>
+
+              </div>
+            </div>
+            <br>
+            <h3 class="text-center">Aranacak Kişiler</h3>
+            <div class=" b table-responsive ">
+              <table class="table table-striped table-hover say">
+                <thead>
+                <tr>
+
+                  <td>#</td>
+                  <td>Adı Soyadı</td>
+                  <td>Cep Telefonu 1</td>
+                  <td>Cep Telefonu 2</td>
+                </tr>
+
+                </thead>
+                <tbody>
+
+                @foreach (var arkisi in aranacak)
+                {
+                  <tr>
+                    <td>@sayac</td>
+                    <td>@arkisi.kimlik</td>
+                    <td>@arkisi.ceptel</td>
+                    <td>@arkisi.ceptel2</td>
+                  </tr>
+
+                  sayac++;
+                }
+                </tbody>
+              </table>
+            </div>
+
+            <br>
+            <h3 class="text-center"> Alarm Cihazı Bilgileri </h3>
+            <div class="b form-row">
+
+              <div class="form-group col-md-2">
+                <label for="">Cihaz Marka</label>
+                <p class="form-control">@kimlik.ChMarka</p>
+
+              </div>
+              <div class="form-group col-md-2">
+                <label for="">Cihaz Model</label>
+                <p class="form-control">@kimlik.ChModel</p>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="">İletişim Türü</label>
+                <p class="form-control">@kimlik.HaberlesmeTuru</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="">İletişim Numarası</label>
+                <p class="form-control">@kimlik.EvTel</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="">Garanti Süresi</label>
+                <p class="form-control">@kimlik.ChGarantiSuresi</p>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="sinyaller">
+  <table class="table table-striped table-hover table-sm">
+    <thead class="thead">
+    <td>Sinyal Tarihi</td>
+    <td>Sinyal Saati</td>
+    <td>Sinyal Kodu</td>
+    <td>Bölge No</td>
+    <td>Zone</td>
+    <td>Sinyal Açıklama</td>
+    </thead>
+    <tbody>
+    @foreach (var sinyal in sinyaller)
+    {
+      if (sinyal.SinyalKod == "E400")
+      {
+        <tr class="bg-danger">
+          <td>@sinyal.SinyalTarih</td>
+          <td>@sinyal.SinyalSaat</td>
+          <td>@sinyal.SinyalKod</td>
+          <td>@sinyal.Bolum</td>
+          <td>@sinyal.Zone</td>
+          <td>ger erertertre ertertertertert asdsadasdasdasdasd</td>
+        </tr>
+      }
+      else
+      {
+        <tr class="bg-light">
+          <td>@sinyal.SinyalTarih</td>
+          <td>@sinyal.SinyalSaat</td>
+          <td>@sinyal.SinyalKod</td>
+          <td>@sinyal.Bolum</td>
+          <td>@sinyal.Zone</td>
+          <td>ger erertertre ertertertertert asdsadasdasdasdasd</td>
+        </tr>
+      }
+            
+    }
+    </tbody>
+  </table>
+</div>
+
+                        
+

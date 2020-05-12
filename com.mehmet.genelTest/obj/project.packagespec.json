@@ -1,0 +1,87 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/com.mehmet.genelTest.csproj",
+    "projectName": "com.mehmet.genelTest",
+    "projectPath": "/home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/com.mehmet.genelTest.csproj",
+    "outputPath": "/home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/obj/",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "netcoreapp3.1"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "projectReferences": {
+          "/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.Business/com.mehmet.proje.Business.csproj": {
+            "projectPath": "/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.Business/com.mehmet.proje.Business.csproj"
+          },
+          "/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.DataAccess/com.mehmet.proje.DataAccess.csproj": {
+            "projectPath": "/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.DataAccess/com.mehmet.proje.DataAccess.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp3.1": {
+      "dependencies": {
+        "FluentNHibernate": {
+          "target": "Package",
+          "version": "[2.1.2, )"
+        },
+        "Microsoft.NET.Test.Sdk": {
+          "target": "Package",
+          "version": "[16.4.0, )"
+        },
+        "Microsoft.Win32.Registry": {
+          "target": "Package",
+          "version": "[5.0.0-preview.3.20214.6, )"
+        },
+        "Moq": {
+          "target": "Package",
+          "version": "[4.14.1, )"
+        },
+        "NHibernate": {
+          "target": "Package",
+          "version": "[5.2.7, )"
+        },
+        "NUnit3TestAdapter": {
+          "target": "Package",
+          "version": "[3.15.1, )"
+        },
+        "Npgsql": {
+          "target": "Package",
+          "version": "[4.1.3.1, )"
+        },
+        "nunit": {
+          "target": "Package",
+          "version": "[3.12.0, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+    }
+  }
+}
