@@ -338,12 +338,8 @@ function getModal(param, id) {
                document.getElementById("kimlikiki").innerHTML=data.aranacaklars[1].kimlik;
                document.getElementById("cepbiriki").innerHTML=data.aranacaklars[1].ceptel;
                document.getElementById("cepbiriki").innerHTML=data.aranacaklars[1].ceptel2;
-               document.getElementById("siyalid").value=id;
-               
-              
-      
-      
-    alert("Data: " + data.musteri.kimlik + data.aranacaklars[0].kimlik + id +"\nStatus: " + status);
+               document.getElementById("siyalid").value=id;          
+   
   },"json");
 
 

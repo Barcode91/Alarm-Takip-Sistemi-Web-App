@@ -9,6 +9,7 @@ namespace com.mehmet.proje.MVCWebUI.Models
         public List<Sinyaller> MusteriSinyaller { get; set; }
         
         public List<Aranacaklar> Aranacaklars { get; set; }
+        public List<IslenmisSinyaller> IslenmisSinyallers { get; set; }
         
        
     }

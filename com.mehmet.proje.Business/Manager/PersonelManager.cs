@@ -33,7 +33,7 @@ namespace com.mehmet.proje.Business.Manager
 
         public void Delete(Personel personel)
         {
-            _personelDal.Update(personel);
+            _personelDal.Delete(personel);
         }
 
         public Personel GetById(int id)

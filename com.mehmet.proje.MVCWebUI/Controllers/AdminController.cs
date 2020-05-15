@@ -9,9 +9,10 @@ using FluentNHibernate.Conventions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace com.mehmet.proje.MVCWebUI.Controllers
 {      
-    //[Authorize]
+    [Authorize(Policy = "UserClaimPositionPolicy")]
     public class AdminController : Controller
     {
         public AdminController(IPersonelService personelService,IMusteriService musteriService, IAranacakService aranacakService, ISinyallerService sinyallerService)
@@ -214,13 +215,46 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
             };
             return View(personelModel);
         }
+
+        public IActionResult personelEkle()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public IActionResult personelEkle(PersonelEkleModel model)
+        {
+            model._personel.CalismaDurumu = "Aktif";
+            model._personel.Parola = "0000";
+            _PersonelService.Add(model._personel);
+            //ViewData["sonuc"] = "Personel Kayıt Edildi";
+            ModelState.AddModelError("Sonuc","Personel Başarı İle Kayıt Edildi.");
+            return View();
+        }
+        [HttpPost]
+        public IActionResult personelUpdate(PersonelEkleModel model)
+        { _PersonelService.Update(model._personel);
+            ModelState.AddModelError("Sonuc","Personel Başarı İle Güncellendi.");
+            return View("personelEkle");
+        }
+
+        public IActionResult PersonelBilgi(int id)
         
-      
-        
-       
-        
-        
-        
-        
+        {    Console.WriteLine("Personel id"+id);
+             PersonelEkleModel model = new PersonelEkleModel
+            {
+                _personel = _PersonelService.GetById(id)
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult PersonelSil(int perid)
+        {    Console.WriteLine("test----"+perid);
+            Personel per = _PersonelService.GetById(perid);
+            Console.WriteLine("test----"+per.Kimlik);
+           _PersonelService.Delete(per);
+           return View("Index");
+        }
     }
 }

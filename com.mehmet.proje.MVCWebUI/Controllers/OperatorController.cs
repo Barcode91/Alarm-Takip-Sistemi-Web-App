@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace com.mehmet.proje.MVCWebUI.Properties
 {
-    //[Authorize]
+    [Authorize(Policy = "UserClaimPositionPolicy2")]
     public class OperatorController : Controller
     {
         IPersonelService _personelService;

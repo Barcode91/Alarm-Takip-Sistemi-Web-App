@@ -6,6 +6,7 @@ using com.mehmet.oracle.entities.BaseClasses;
 using com.mehmet.proje.Business.Interfaces;
 using com.mehmet.proje.MVCWebUI.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -39,7 +40,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
           
             return View(model1);
         }
-        
+        /*
         [HttpPost]
         public IActionResult Index(LoginModel model)
         {
@@ -49,7 +50,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                 {
                     var musteri = _musteriService.LoginCont(model.aboneNo, model.parola);
                     if (musteri!=null)
-                    {
+                    {    
                         return RedirectToAction("Index", "Musteri", musteri);
                     }
                 }
@@ -81,8 +82,8 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
 
             return View(model1);
         }
+        */
         
-        /*
         [HttpPost]
         public async Task<IActionResult> Index(LoginModel model)
         {
@@ -95,10 +96,11 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                     {
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Name, model.aboneNo)
+                            new Claim(ClaimTypes.Name, model.aboneNo),
+                            new Claim("gorevturu","müsteri")
                         };
  
-                        var userIdentity = new ClaimsIdentity(claims, "login");
+                        var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
  
                         ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                         await HttpContext.SignInAsync(principal);
@@ -111,16 +113,18 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                 {
                     var personel = _personelService.LoginCont(model.aboneNo, model.parola);
                     if (personel!=null)
-                    {
+                    {   Console.WriteLine("operator kntrolde");
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Name, model.aboneNo)
+                            new Claim(ClaimTypes.Name, model.aboneNo),
+                            new Claim("gorevturu","operatör")
                         };
  
-                        var userIdentity = new ClaimsIdentity(claims, "login");
- 
+                        var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        Console.WriteLine("operator"+userIdentity.Name);
                         ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-                        await HttpContext.SignInAsync(principal);
+                        Console.WriteLine("operator"+principal.ToString());
+                        HttpContext.SignInAsync(principal).Wait();
                         
                         
                         return RedirectToAction("Index", "Operator", personel);
@@ -134,10 +138,12 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                         
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Name, model.aboneNo)
+                            new Claim(ClaimTypes.Name, model.aboneNo),
+                            new Claim("gorevturu","yönetici")
+                            
                         };
  
-                        var userIdentity = new ClaimsIdentity(claims, "login");
+                        var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
  
                         ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                         await HttpContext.SignInAsync(principal);
@@ -154,7 +160,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
 
             return View(model1);
         }
-*/
+
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync();

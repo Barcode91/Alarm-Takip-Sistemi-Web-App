@@ -1,0 +1,58 @@
+@model PersonelEkleModel
+@{
+    ViewBag.Title = "title";
+    Layout = "_AdminLayout";
+}
+
+
+<div class="container">
+  
+    <form asp-controller="Admin" asp-action="personelUpdate" class="col-md-6">
+        <div class="form-group">
+            <label>TC. Kimlik Numarası</label>
+            <input class="form-control" asp-for="_personel.PersonelTcNo" disabled/>
+        </div>
+        <div class="form-group">
+            <label>Ad ve Soyad</label>
+            <input class="form-control" asp-for="_personel.Kimlik" disabled/>
+        </div>
+        
+        <div class="form-group">
+            <label>Cep Telefonu </label>
+            <input class="form-control" asp-for="_personel.CepTel" disabled/>
+        </div>
+        
+        <div class="form-group">
+            <label>İşe Başlama Tarihi </label>
+            <input class="form-control" asp-for="_personel.IseBasTarihi" disabled/>
+        </div>
+        <div class="form-group">
+            <label>Görev Türü </label>
+            <input class="form-control" asp-for="_personel.GorevTur" placeholder="Yönetici Operatör" disabled/>
+        </div>
+        <input type="hidden" asp-for="_personel.PersonelId"/>
+        
+        <input type="button" id="btno" class="btn btn-success" onclick="disable()" value="GÜNCELLE" />
+        <input type="submit" id="update" class="btn btn-success" value="DEĞİŞİKLERİ KAYDET" style="display: none" />
+        
+        
+    </form>
+    
+    @Html.ValidationMessage("Sonuc", new
+    {style="color:red;" })
+
+
+
+</div>
+
+
+<script>
+function disable() {
+$( "input" ).prop( "disabled", false );
+document.getElementById("update").style.display="inline";
+document.getElementById("btno").style.display="none";
+      
+}
+
+
+</script>

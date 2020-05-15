@@ -32,6 +32,11 @@
     &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=db3ef2c1_002D4daa_002D4b49_002Da0f3_002Dccbef7229dd8/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="Test1 #4" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.Test1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2962db6_002Dacf6_002D4e0e_002D8a88_002Db6e4dc1fc31b/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="logintest" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.logintest&lt;/TestId&gt;

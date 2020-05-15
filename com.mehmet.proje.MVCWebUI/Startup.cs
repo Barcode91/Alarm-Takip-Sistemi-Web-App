@@ -38,10 +38,11 @@ namespace com.mehmet.proje.MVCWebUI
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(config =>
                 {
-                    
                     config.LoginPath = "/Login";
-
                 });
+            services.AddAuthorization(x => x.AddPolicy("UserClaimPositionPolicy", policy => policy.RequireClaim("gorevturu", "yönetici")));
+            services.AddAuthorization(x => x.AddPolicy("UserClaimPositionPolicy2", policy => policy.RequireClaim("gorevturu", "operatör")));
+            services.AddAuthorization(x => x.AddPolicy("UserClaimPositionPolicy3", policy => policy.RequireClaim("gorevturu", "müsteri")));
             services.AddScoped<ISinyallerService, SinyallerManager>(); // Servisler Tanıtır.
             services.AddScoped<ISinyallerDal, NhSinyallerDal>();
             services.AddScoped<NhibernateHelper, PostgreHelper>();// Kullanım mantığı <İnterface, Onu implement eden class>
@@ -90,22 +91,12 @@ namespace com.mehmet.proje.MVCWebUI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-            
-           
-            
-            
-            app.UseCors();   
-            
-            
-           
-
-            
-            
+            app.UseCors();
             app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
-            
-            
-            app.UseEndpoints(endpoints =>
+
+                app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",

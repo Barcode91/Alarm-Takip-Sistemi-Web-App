@@ -2,6 +2,31 @@
 @model List<com.mehmet.oracle.entities.BaseClasses.Sinyaller>
 
 @{
+List<string>  Aciliskod = new List<string>
+{
+    "E400","E401", // normal açılış yeşil
+    "E402", // erken açılış sarı
+    "E403","E405" // mesai dışı giriş turuncu
+};
+    List<string> Alarmkod = new List<string>
+    {
+        "E200", // tek gözden gelen alarm (krımızı)
+        "E211", // sabotaj
+        "E222", // birden çok gözden gelen alarm
+        "E233", // sabotaj
+        "E255" // ambulans
+    };
+    
+    List<string> Arizakod = new List<string>
+    {
+        "E100", // sistem arızası gri
+        "E120", // elektrik arızası pembe
+        "E140", // telefon aruzası // mavi
+       
+        
+    };
+    
+    
     Layout = null;
 }
 
@@ -14,8 +39,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
+    </head>
   <body>
       <div class="container-fluid text-center">
         <h3 class="bg-warning" >Anlık Sinyal Akışı</h3>
@@ -37,38 +63,130 @@
                         <tbody>
                         @foreach(var sinyal in Model)
                         {
-                        <tr>
-                            <td>@sinyal.SinyalId</td>
-                            <td>@sinyal.AboneNo</td>
-                            <td>@sinyal.SinyalTarih</td>
-                            <td>@sinyal.SinyalSaat</td>
-                            <td>İşlenmedi</td>
-                            <td>işlenmedi</td>
-                            <td>@sinyal.SinyalKod</td>
-                            <td>@sinyal.Bolum</td>
-                             <td>@sinyal.Zone</td>
-                            <td>hasan akkuş</td>
-                            <td>ger erertertre ertertertertert asdsadasdasdasdasd</td>
-                        </tr>
-        
-    }
-
-                        
-                        
+                            if (sinyal.SinyalKod== "E200" ||
+                            sinyal.SinyalKod=="E211"||
+                            sinyal.SinyalKod=="E222"||
+                            sinyal.SinyalKod=="E233"||
+                            sinyal.SinyalKod=="E255")
+                            {
+                                <tr class="bg-danger" >
+                                    <td>@sinyal.SinyalId</td>
+                                    <td>@sinyal.AboneNo</td>
+                                    <td>@sinyal.SinyalTarih</td>
+                                    <td>@sinyal.SinyalSaat</td>
+                                    <td>İşlenmedi</td>
+                                    <td>işlenmedi</td>
+                                    <td>@sinyal.SinyalKod</td>
+                                    <td>@sinyal.Bolum</td>
+                                    <td>@sinyal.Zone</td>
+                                    <td>yok</td>
+                                    <td>@sinyal.SinyalTAnim</td>
+                                </tr>  
+                            }
+                            if (sinyal.SinyalKod== "E400" ||
+                                sinyal.SinyalKod=="E401")
+                            {
+                                <tr class="bg-success" >
+                                    <td>@sinyal.SinyalId</td>
+                                    <td>@sinyal.AboneNo</td>
+                                    <td>@sinyal.SinyalTarih</td>
+                                    <td>@sinyal.SinyalSaat</td>
+                                    <td>İşlenmedi</td>
+                                    <td>işlenmedi</td>
+                                    <td>@sinyal.SinyalKod</td>
+                                    <td>@sinyal.Bolum</td>
+                                    <td>@sinyal.Zone</td>
+                                    <td>yok</td>
+                                    <td>@sinyal.SinyalTAnim</td>
+                                </tr>  
+                            }
+                            if (sinyal.SinyalKod== "E402" )
+                            {
+                                <tr class="bg-warning" >
+                                    <td>@sinyal.SinyalId</td>
+                                    <td>@sinyal.AboneNo</td>
+                                    <td>@sinyal.SinyalTarih</td>
+                                    <td>@sinyal.SinyalSaat</td>
+                                    <td>İşlenmedi</td>
+                                    <td>işlenmedi</td>
+                                    <td>@sinyal.SinyalKod</td>
+                                    <td>@sinyal.Bolum</td>
+                                    <td>@sinyal.Zone</td>
+                                    <td>yok</td>
+                                    <td>@sinyal.SinyalTAnim</td>
+                                </tr>  
+                            }
+                            if (sinyal.SinyalKod== "E403" || sinyal.SinyalKod== "E405" )
+                            {
+                                <tr class="bg-dark" >
+                                    <td>@sinyal.SinyalId</td>
+                                    <td>@sinyal.AboneNo</td>
+                                    <td>@sinyal.SinyalTarih</td>
+                                    <td>@sinyal.SinyalSaat</td>
+                                    <td>İşlenmedi</td>
+                                    <td>işlenmedi</td>
+                                    <td>@sinyal.SinyalKod</td>
+                                    <td>@sinyal.Bolum</td>
+                                    <td>@sinyal.Zone</td>
+                                    <td>yok</td>
+                                    <td>@sinyal.SinyalTAnim</td>
+                                </tr>  
+                            }
+                            if (sinyal.SinyalKod== "E140" )
+                            {
+                                <tr class="bg-secondary" >
+                                    <td>@sinyal.SinyalId</td>
+                                    <td>@sinyal.AboneNo</td>
+                                    <td>@sinyal.SinyalTarih</td>
+                                    <td>@sinyal.SinyalSaat</td>
+                                    <td>İşlenmedi</td>
+                                    <td>işlenmedi</td>
+                                    <td>@sinyal.SinyalKod</td>
+                                    <td>@sinyal.Bolum</td>
+                                    <td>@sinyal.Zone</td>
+                                    <td>yok</td>
+                                    <td>@sinyal.SinyalTAnim</td>
+                                </tr>  
+                            }
+                            if (sinyal.SinyalKod== "E120" )
+                            {
+                                <tr class="bg-info" >
+                                    <td>@sinyal.SinyalId</td>
+                                    <td>@sinyal.AboneNo</td>
+                                    <td>@sinyal.SinyalTarih</td>
+                                    <td>@sinyal.SinyalSaat</td>
+                                    <td>İşlenmedi</td>
+                                    <td>işlenmedi</td>
+                                    <td>@sinyal.SinyalKod</td>
+                                    <td>@sinyal.Bolum</td>
+                                    <td>@sinyal.Zone</td>
+                                    <td>yok</td>
+                                    <td>@sinyal.SinyalTAnim</td>
+                                </tr>  
+                            }
+                            if (sinyal.SinyalKod== "E100" )
+                            {
+                                <tr class="bg-dark" >
+                                    <td>@sinyal.SinyalId</td>
+                                    <td>@sinyal.AboneNo</td>
+                                    <td>@sinyal.SinyalTarih</td>
+                                    <td>@sinyal.SinyalSaat</td>
+                                    <td>İşlenmedi</td>
+                                    <td>işlenmedi</td>
+                                    <td>@sinyal.SinyalKod</td>
+                                    <td>@sinyal.Bolum</td>
+                                    <td>@sinyal.Zone</td>
+                                    <td>yok</td>
+                                    <td>@sinyal.SinyalTAnim</td>
+                                </tr>  
+                            }
+                        }
                         </tbody>
                     </table>
-        
-
-
-
         </div>
         
       </div>
-
-
-
-      
-    <!-- Optional JavaScript -->
+  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
