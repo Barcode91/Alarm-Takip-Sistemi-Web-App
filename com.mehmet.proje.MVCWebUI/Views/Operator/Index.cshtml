@@ -16,7 +16,10 @@
 }
 @if (!string.IsNullOrEmpty((string)TempData["info"]))
 {
-    <script> alert(@TempData["info"]) </script>
+    <script>
+    
+    
+     alert(@TempData["info"]) </script>
 }
 
  <style type="text/css">
@@ -38,80 +41,79 @@
 
     <br>
 <div class="container-fluid">
-<div class="tab-content">
+<div class="tab-content" >
 <div class="tab-pane" id="kimlik">
     <div class="container col-md-6">
         <h2 class="text-danger"> Kimlik Bilgileri </h2>
         <br>
-        <form asp-controller="" asp-action="">
+        
             <div class="form-group">
                 <label for="">Tc. Kimlik No:</label>
-                <input type="text" class="form-control" asp-for="personel.PersonelTcNo" disabled>
+                <input type="text" name="tc" class="form-control" asp-for="personel.PersonelTcNo" disabled>
                 <span asp-validation-for="personel.PersonelTcNo"></span>
             </div>
             <div class="form-group">
                 <label for="">Ad Soyad:</label>
-                <input type="text" class="form-control" asp-for="personel.Kimlik" disabled>
+                <input type="text" name="ad" class="form-control" asp-for="personel.Kimlik" disabled>
                 <span asp-validation-for="personel.Kimlik"></span>
             </div>
 
             <div class="form-group">
                 <label for="">Cep Telefonu</label>
-                <input type="text" class="form-control" asp-for="personel.CepTel" disabled>
+                <input type="text" name="cep" class="form-control" asp-for="personel.CepTel" disabled>
                 <span asp-validation-for="personel.CepTel"></span>
             </div>
             <div class="form-group">
                 <label for="">İşe Bağlangıç Tarihi</label>
-                <input type="text" class="form-control" asp-for="personel.IseBasTarihi" disabled>
+                <input type="text" name="bas" class="form-control" asp-for="personel.IseBasTarihi" disabled>
                 <span asp-validation-for="personel.IseBasTarihi"></span>
             </div>
             <div class="form-group">
                 <label for="">Görev Türü</label>
-                <input type="text" class="form-control" asp-for="personel.GorevTur" disabled>
+                <input type="text" name="tur" class="form-control" asp-for="personel.GorevTur" disabled>
                 <span asp-validation-for="personel.GorevTur"></span>
             </div>
-            <input type="hidden" asp-for="personel.PersonelId"/>
+            <input type="hidden" name="idsi" asp-for="personel.PersonelId"/>
             <input type="hidden" asp-for="personel.Parola"/>
             <input type="hidden" asp-for="personel.CalismaDurumu"/>
 
 
-            <button id="update" class="btn btn-success" style="display: none"> Değişikiği Kaydet </button>
+            <button id="update" class="btn btn-success" onclick="bilgiguncelle()" style="display: none"> Değişikiği Kaydet </button>
 
 
-        </form>
+        
         <div class="form-row">
             <div class="col-md-3"> <button id="btno" onclick="disable()" class="btn btn-success"> Bilgileri Güncelle </button> </div>
         </div>
+        <h6  id="sonucbilgi"></h6>
+        
 
     </div>
 
 </div>
-<div class="tab-pane" id="parola">
-    <div class="container col-md-4">
-        <h3>Parola Değişikliği İşlemleri</h3>
-        <form action="">
-
-            <div class="form-group">
-                <label for="">Yeni Parolanızı Giriniz</label>
-                <input class="form-control" type="password" name="sifre" id="sifre" required
-                       placeholder="Şifreniz en az 8 karakter olmalı">
-            </div>
-            <div class="form-group">
-                <label for="">Parolayı Tekrar Giriniz</label>
-                <input class="form-control" type="password" name="sifrecont" id="sifrecont" required>
-            </div>
-            <input type="submit" class="btn btn-success" name="" id="" value="Gönder">
-
-
-
-        </form>
-
-
-    </div>
-
-
-
-
+<div class="tab-pane" id="parola">   
+   <div class="container col-md-4">
+           <h3>Parola Değişikliği İşlemleri</h3>           
+   
+               <div class="form-group">
+                   <label for="">Yeni Parolanızı Giriniz</label>
+                   <input class="form-control" type="password"  name="sifre" id="sifre" required
+                          placeholder="Şifreniz en az 8 karakter olmalı">
+               </div>
+               <div class="form-group">
+                   <label for="">Parolayı Tekrar Giriniz</label>
+                   <input class="form-control" type="password" name="sifrecont" id="sifrecont" required>
+               </div>
+               <input type="hidden" name="OpId" asp-for="personel.PersonelId"/>
+               <input type="button" class="btn btn-success" onclick="guncelle()" name="gonder" id="gonder" value="Gönder">
+               
+               <h6 onmouseout="temizle()" id="sonuc"></h6>
+          
+               @Html.ValidationMessage("Sonuc", new
+           {style="color:green;" })
+   
+   
+       </div>
 </div>
 <div class="tab-pane active" id="sinyaller">
     <div class="table-responsive">
@@ -341,22 +343,8 @@ function getModal(param, id) {
                document.getElementById("siyalid").value=id;          
    
   },"json");
-
-
-
-
-
-
-
-    
+  
 }
-
-
-
-
-
-
-
 
 function disable() {
     $( "input" ).prop( "disabled", false );
@@ -379,11 +367,65 @@ function gonder(abone,tc,kimlik,adres,il,ilce,ceptel,evtel,model,marka,garanti) 
        document.getElementById("model").innerHTML=model;
         document.getElementById("garanti").innerHTML=garanti;
 
-      
+}
+
+function guncelle() {
+    var sifre = $("input[name=sifre]").val();
+    var sifrecont = $("input[name=sifrecont]").val();
+    var opId = $("input[name=OpId]").val();
+    $.ajax({
+    url:"https://localhost:5001/Operator/SifreGuncelle",
+    type:"POST",
+    data :{
+        sifre:sifre,
+        sifreCont:sifrecont,
+        OpId:opId
+    },
+    success: function(sonuc) {
+      $("#sonuc").html(sonuc);
+    }    
+    });   
      
-   
+}
+
+function bilgiguncelle() {
+    
+       var ad = $("input[name=ad]").val();
+       var tc = $("input[name=tc]").val();
+       var idsi = $("input[name=idsi]").val();
+       var cep = $("input[name=cep]").val();      
+       
+       $.ajax({
+       url:"https://localhost:5001/Operator/OperatorGuncelleme",
+       type:"POST",
+       data :{
+          ad:ad,
+          tc:tc,
+          id:idsi,
+          cep:cep
+       },
+       success: function(sonuc) {
+         $("#sonucbilgi").html(sonuc);
+       }    
+       });   
   
 }
+
+function temizle() {
+        
+        $("input[name=sifre]").val("");
+        $("input[name=sifrecont]").val("");
+        $("input[name=OpId]").val("");
+        $("h6").val("");
+        
+    
+    }
+
+
+
+
+
+
 
 </script>
 

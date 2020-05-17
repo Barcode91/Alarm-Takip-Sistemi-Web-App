@@ -15,11 +15,12 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
     [Authorize(Policy = "UserClaimPositionPolicy")]
     public class AdminController : Controller
     {
-        public AdminController(IPersonelService personelService,IMusteriService musteriService, IAranacakService aranacakService, ISinyallerService sinyallerService)
+        public AdminController(IPersonelService personelService,IMusteriService musteriService, IAranacakService aranacakService, ISinyallerService sinyallerService, IIslenmisSinyallerService islenmisSinyallerService)
         {
             _musteriService = musteriService;
             _aranacakService = aranacakService;
             _SinyallerService = sinyallerService;
+            _islenmisSinyallerService = islenmisSinyallerService;
             _PersonelService = personelService;
         }
 
@@ -27,6 +28,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
         public IAranacakService _aranacakService;
         public ISinyallerService _SinyallerService;
         public IPersonelService _PersonelService;
+        public IIslenmisSinyallerService _islenmisSinyallerService;
       
         public IActionResult Index()
         {
@@ -256,5 +258,24 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
            _PersonelService.Delete(per);
            return View("Index");
         }
+
+        public IActionResult IslenmisSinyal()
+        {
+            TumSinyaller model = new TumSinyaller
+            {
+                _islenmisSinyal = _islenmisSinyallerService.GetAll()
+            };
+            return View(model);
+        }
+
+        public IActionResult BekleyenSinyal()
+        {
+            BekleyenSinyalModel model = new BekleyenSinyalModel
+            {
+                _sinyaller = _SinyallerService.GetAll()
+            };
+            return View(model);
+        }
+
     }
 }

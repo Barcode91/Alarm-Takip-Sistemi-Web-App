@@ -7,7 +7,7 @@ namespace com.mehmet.proje.DataAccess.SomutSiniflar.NHibernate.Mapping
     {
         public CihazModelMap()
         {
-            Id(x => x.ModelId);
+            Id(x => x.ModelId).GeneratedBy.Increment();;
             Map(x => x.MarkaId);
             Map(x => x.ModelAdi);
         }

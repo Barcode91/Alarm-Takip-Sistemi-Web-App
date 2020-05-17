@@ -9,7 +9,7 @@ namespace com.mehmet.proje.DataAccess.SomutSiniflar.NHibernate.Mapping
         {
             //Table(@"musteri");
             LazyLoad();
-            Id(x => x.MusteriId);
+            Id(x => x.MusteriId).GeneratedBy.Increment();;
             Map(x => x.AboneNo);
             Map(x => x.Kimlik);
             Map(x => x.Adres);

@@ -7,7 +7,7 @@ namespace com.mehmet.proje.DataAccess.SomutSiniflar.NHibernate.Mapping
     {
         public AranacakMap()
         {
-            Id(x=>x.aranacakId);
+            Id(x=>x.aranacakId).GeneratedBy.Increment();;
             Map(x => x.aboneNo);
             Map(x => x.kimlik);
             Map(x => x.ceptel);

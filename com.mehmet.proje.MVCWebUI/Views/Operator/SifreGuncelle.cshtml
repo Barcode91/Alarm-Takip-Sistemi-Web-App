@@ -1,0 +1,39 @@
+@model OperaTorModel
+@{
+    Layout="_OperatorLayout";
+    string aboneNo;
+    var sayac = 1;
+ 
+ //<a class="btn btn-success" asp-controller="Operator" asp-action="SinyalIslem" asp-route-id="@sinyal.SinyalId" asp-route-aboneNo="@sinyal.AboneNo">işlem Yap</a>   
+   
+    
+    
+    
+    
+}
+
+
+    <div class="container col-md-4">
+        <h3>Parola Değişikliği İşlemleri</h3>
+        <form asp-controller="Operator" asp-action="SifreGuncelle">
+
+            <div class="form-group">
+                <label for="">Yeni Parolanızı Giriniz</label>
+                <input class="form-control" type="password" name="sifre" id="sifre" required
+                       placeholder="Şifreniz en az 8 karakter olmalı">
+            </div>
+            <div class="form-group">
+                <label for="">Parolayı Tekrar Giriniz</label>
+                <input class="form-control" type="password" name="sifrecont" id="sifrecont" required>
+            </div>
+            <input type="hidden" name="OpId" asp-for="personel.PersonelId"/>
+            <input type="submit" class="btn btn-success" name="" id="" value="Gönder">
+        </form>
+        @Html.ValidationMessage("Sonuc", new
+        {style="color:green;" })
+
+
+    </div>
+
+
+

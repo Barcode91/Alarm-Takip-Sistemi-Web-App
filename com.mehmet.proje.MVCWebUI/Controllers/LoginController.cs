@@ -154,10 +154,10 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                 
             }
             if (!ModelState.IsValid) // Bilgiler Eksikse
-            {
+            {   ModelState.AddModelError("Sonuc","Giriş Bilgileriniz Hatalı...");
                 return View(model1);
             }
-
+            ModelState.AddModelError("Sonuc","Giriş Bilgileriniz Hatalı...");
             return View(model1);
         }
 

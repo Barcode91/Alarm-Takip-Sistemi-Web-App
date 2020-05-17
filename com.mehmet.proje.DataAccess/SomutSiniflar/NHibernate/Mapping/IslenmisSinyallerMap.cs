@@ -7,7 +7,7 @@ namespace com.mehmet.proje.DataAccess.SomutSiniflar.NHibernate.Mapping
     {
         public IslenmisSinyallerMap()
         {
-            Id(x => x.SinyalId);
+            Id(x => x.SinyalId).GeneratedBy.Increment();;
             Map(x => x.AboneNo);
             Map(x => x.SinyalKod);
             Map(x => x.SinyalNitelik);

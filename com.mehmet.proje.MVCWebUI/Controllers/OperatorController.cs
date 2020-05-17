@@ -96,13 +96,38 @@ namespace com.mehmet.proje.MVCWebUI.Properties
             };
             
             return Json(model);
-        } 
-
-/*
-        public IActionResult OperatorUpdate(Personel personel)
+        }
+        
+        [HttpPost]
+        public String SifreGuncelle(String sifre, String sifreCont,int OpId)
         {
-            return View();
-        } 
-        */
+            String sonuc;
+            if (sifre.Equals(sifreCont))
+            {
+                Personel personel = _personelService.GetById(OpId);
+                personel.Parola = sifre;
+                _personelService.Update(personel);
+                sonuc = "<div class=\"alert alert-success\" role=\"alert\">Şifreniz Güncellenmiştir...</div>";
+            }
+            else
+            {
+               sonuc = "<div class=\"alert alert-danger\" role=\"alert\">Hata Şifreniz Güncellenememiştir...</div>";
+            }
+
+            return sonuc;
+
+        }
+        [HttpPost]
+        public String OperatorGuncelleme(int id, String tc, String ad, String cep)
+        {
+            Personel personel = _personelService.GetById(id);
+            personel.Kimlik = ad;
+            personel.PersonelTcNo = tc;
+            personel.CepTel = cep;
+            _personelService.Update(personel);
+            
+            return "<div class=\"alert alert-success\" role=\"alert\">Bilgileriniz Güncellenmiştir...</div>";
+        }
+
     }
 }

@@ -8,7 +8,7 @@ namespace com.mehmet.proje.DataAccess.SomutSiniflar.NHibernate.Mapping
         public SinyallerMap()
         {   // Table(@"SINYALLER");
             LazyLoad();
-            Id(x => x.SinyalId);
+            Id(x => x.SinyalId).GeneratedBy.Increment();;
             Map(x => x.AboneNo);
             Map(x => x.SinyalKod);
             Map(x => x.SinyalNitelik);

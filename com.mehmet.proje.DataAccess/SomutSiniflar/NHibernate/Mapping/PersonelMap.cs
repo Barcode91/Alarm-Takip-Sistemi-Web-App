@@ -8,7 +8,7 @@ namespace com.mehmet.proje.DataAccess.SomutSiniflar.NHibernate.Mapping
     {
         public PersonelMap()
         {
-            Id(x => x.PersonelId);
+            Id(x => x.PersonelId).GeneratedBy.Increment();
             Map(x => x.PersonelTcNo);
             Map(x => x.Parola);
             Map(x => x.CepTel);

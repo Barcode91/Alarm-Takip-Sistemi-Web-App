@@ -94,3 +94,6 @@
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/personelEkle.cshtml.g.cs
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/PersonelBilgi.cshtml.g.cs
+/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Operator/SifreGuncelle.cshtml.g.cs
+/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/IslenmisSinyal.cshtml.g.cs
+/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/BekleyenSinyal.cshtml.g.cs
