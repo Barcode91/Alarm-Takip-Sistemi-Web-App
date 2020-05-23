@@ -26,8 +26,22 @@ using com.mehmet.proje.MVCWebUI.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/Views/_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/Views/_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"eba5e549627315ea4da45f485f1bab0a55f26798", @"/Views/Admin/Aboneler.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0039429b96211ce8aa66cd6a5ecb6253b58227b3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"76bbc8dec0f5616cb7704077617a323a6bac9c77", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Aboneler : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<AdminAbonelerModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-sm btn-info"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -169,7 +183,7 @@ using com.mehmet.proje.MVCWebUI.Models;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\n    \n                            <td>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f267989830", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f2679810201", async() => {
                 WriteLiteral("Göster");
             }
             );
@@ -203,7 +217,7 @@ using com.mehmet.proje.MVCWebUI.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</td>\n                            <td>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f2679812397", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f2679812769", async() => {
                 WriteLiteral("Güncelle");
             }
             );
@@ -237,7 +251,7 @@ using com.mehmet.proje.MVCWebUI.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</td>\n                            <td>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f2679814973", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f2679815345", async() => {
                 WriteLiteral("Sil");
             }
             );
@@ -304,7 +318,7 @@ using com.mehmet.proje.MVCWebUI.Models;
             BeginWriteAttribute("value", " value=\"", 2843, "\"", 2851, 0);
             EndWriteAttribute();
             WriteLiteral(" style=\"display: none\"></p>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f2679819027", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba5e549627315ea4da45f485f1bab0a55f2679819399", async() => {
                 WriteLiteral("Onayla");
             }
             );

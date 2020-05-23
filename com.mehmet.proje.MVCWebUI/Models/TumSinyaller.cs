@@ -6,8 +6,8 @@ namespace com.mehmet.proje.MVCWebUI.Models
 {
     public class TumSinyaller
     {
-        private List<Sinyaller> _sinyaller { get; set; }
-        public List<IslenmisSinyaller> _islenmisSinyal { get; set; }
+        private IEnumerable<Sinyaller> _sinyaller { get; set; }
+        public IEnumerable<IslenmisSinyaller> _islenmisSinyal { get; set; }
 
     }
 }

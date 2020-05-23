@@ -17,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace com.mehmet.proje.MVCWebUI
 {
@@ -34,11 +35,12 @@ namespace com.mehmet.proje.MVCWebUI
         {
             
             //services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddSingleton<IActionContextAccessor,ActionContextAccessor>();
             
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(config =>
                 {
-                    config.LoginPath = "/Login";
+                    config.LoginPath = "/";
                 });
             services.AddAuthorization(x => x.AddPolicy("UserClaimPositionPolicy", policy => policy.RequireClaim("gorevturu", "yönetici")));
             services.AddAuthorization(x => x.AddPolicy("UserClaimPositionPolicy2", policy => policy.RequireClaim("gorevturu", "operatör")));

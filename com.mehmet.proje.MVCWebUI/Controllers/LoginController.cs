@@ -34,6 +34,8 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                 new SelectListItem(text:"Operatör", value:"2"),
                 new SelectListItem(text:"Yönetici", value:"3"),}
         };
+        
+        LoginModel model2 = new LoginModel();
     
         public ActionResult Index()
         {
@@ -166,8 +168,78 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index","Home");
         }
+        
+        
+        public IActionResult AdminLogin()
+        {
+            return View(model1);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AdminLogin(LoginModel model)
+        {
+             if (ModelState.IsValid)
+             {
+                 var personel = _personelService.LoginCont(model.aboneNo, model.parola);
+                 if (personel!=null)
+                 {
+                     var claims = new List<Claim>
+                     {
+                         new Claim(ClaimTypes.Name, model.aboneNo),
+                         new Claim("gorevturu","yönetici")
+                     };
+                     var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                     await HttpContext.SignInAsync(principal);
+                     return RedirectToAction("Index", "Admin", personel);
+                 }
+                
+             }
+             if (!ModelState.IsValid) // Bilgiler Eksikse
+             {   ModelState.AddModelError("Sonuc","Giriş Bilgileriniz Hatalı...");
+                 return View(model2);
+             }
+             ModelState.AddModelError("Sonuc","Giriş Bilgileriniz Hatalı...");
+             return View(model2);
+        }
+        
+        public IActionResult OperatorLogin()
+        {
+            return View(model1);
+        }
+        [HttpPost]
+        public async Task<IActionResult> OperatorLogin(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var personel = _personelService.LoginCont(model.aboneNo, model.parola);
+                if (personel!=null)
+                {   Console.WriteLine("operator kntrolde");
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, model.aboneNo),
+                        new Claim("gorevturu","operatör")
+                    };
+ 
+                    var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    Console.WriteLine("operator"+userIdentity.Name);
+                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                    Console.WriteLine("operator"+principal.ToString());
+                    HttpContext.SignInAsync(principal).Wait();
+                        
+                        
+                    return RedirectToAction("Index", "Operator", personel);
+                }
+                
+                
+            }
+            if (!ModelState.IsValid) // Bilgiler Eksikse
+            {   ModelState.AddModelError("Sonuc","Giriş Bilgileriniz Hatalı...");
+                return View(model2);
+            }
+            ModelState.AddModelError("Sonuc","Giriş Bilgileriniz Hatalı...");
+            return View(model2);
+        }
+        
 
-       
-      
     }
 }

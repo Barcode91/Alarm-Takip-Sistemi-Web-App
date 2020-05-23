@@ -6,6 +6,6 @@ namespace com.mehmet.proje.MVCWebUI.Models
 {
     public class BekleyenSinyalModel
     {
-        public List<Sinyaller> _sinyaller { get; set; }
+        public IEnumerable<Sinyaller> _sinyaller { get; set; }
     }
 }

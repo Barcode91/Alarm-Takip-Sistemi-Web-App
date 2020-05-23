@@ -6,6 +6,7 @@ using com.mehmet.proje.MVCWebUI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace com.mehmet.proje.MVCWebUI.Controllers
 {      [Authorize(Policy = "UserClaimPositionPolicy3")]
     public class MusteriController : Controller

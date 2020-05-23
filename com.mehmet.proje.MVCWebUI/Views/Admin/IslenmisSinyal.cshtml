@@ -1,38 +1,23 @@
 @using com.mehmet.oracle.entities.BaseClasses
+@using X.PagedList.Mvc.Core.Common
 @model TumSinyaller
 
 @{
-List<string>  Aciliskod = new List<string>
-{
+    /*
     "E400","E401", // normal açılış yeşil
     "E402", // erken açılış sarı
     "E403","E405" // mesai dışı giriş turuncu
-};
-    List<string> Alarmkod = new List<string>
-    {
-        "E200", // tek gözden gelen alarm (krımızı)
-        "E211", // sabotaj
-        "E222", // birden çok gözden gelen alarm
-        "E233", // sabotaj
-        "E255" // ambulans
-    };
-    
-    List<string> Arizakod = new List<string>
-    {
-        "E100", // sistem arızası gri
-        "E120", // elektrik arızası pembe
-        "E140", // telefon aruzası // mavi
-       
-        
-    };
+    "E200", // tek gözden gelen alarm (krımızı)
+    "E211", // sabotaj
+    "E222", // birden çok gözden gelen alarm
+    "E233", // sabotaj
+    "E255" // ambulans
+    "E100", // sistem arızası gri
+    "E120", // elektrik arızası pembe
+    "E140", // telefon aruzası // mavi
+    */
     Layout = "_AdminLayout";
-
-    
     var issinyal = Model._islenmisSinyal;
-    
-    
-    
-    
 }
 
 
@@ -77,7 +62,8 @@ List<string>  Aciliskod = new List<string>
                     </tr>  
                 }
                 if (sinyal.SinyalKod== "E400" ||
-                    sinyal.SinyalKod=="E401")
+                    sinyal.SinyalKod=="E401" ||
+                    sinyal.SinyalKod=="E404")
                 {
                     <tr class="bg-success" >
                          <td>@sinyal.SinyalId</td>
@@ -185,7 +171,24 @@ List<string>  Aciliskod = new List<string>
             </tbody>
         </table>
     </div>
+     @Html.PagedListPager((IPagedList)issinyal, page => Url.Action("IslenmisSinyal", new { page = page }),
+                new PagedListRenderOptions
+                {
+                    DisplayItemSliceAndTotal = false,
+                    ContainerDivClasses = new[] { "navigation" },
+                    LiElementClasses = new[] { "page-item" },
+                    PageClasses = new[] { "page-link" }
+                }
+                )
         
 </div>
+
+ <script>
+            $(document).ready(function () {
+            $('ul.pagination> li.disabled > a').addClass('page-link');
+            $('ul.pagination').addClass('justify-content-center');
+            
+        });
+    </script>
 
   

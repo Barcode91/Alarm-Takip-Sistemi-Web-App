@@ -8,6 +8,7 @@ using com.mehmet.proje.MVCWebUI.Models;
 using FluentNHibernate.Conventions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 
 namespace com.mehmet.proje.MVCWebUI.Controllers
@@ -259,20 +260,27 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
            return View("Index");
         }
 
-        public IActionResult IslenmisSinyal()
+        public IActionResult IslenmisSinyal(int? page)
         {
+            var pageNumber = page ?? 1; 
+            int pageSize = 2; 
             TumSinyaller model = new TumSinyaller
             {
-                _islenmisSinyal = _islenmisSinyallerService.GetAll()
+                _islenmisSinyal = _islenmisSinyallerService.GetAll().ToPagedList(pageNumber,pageSize)
             };
             return View(model);
         }
 
-        public IActionResult BekleyenSinyal()
+        public IActionResult BekleyenSinyal(int? page)
         {
+            var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
+            int pageSize = 2; // Get 25 students for each requested page.
+            //var bekleyenSinyal = _SinyallerService.GetAll().ToPagedList(pageNumber, pageSize);
+                
+            
             BekleyenSinyalModel model = new BekleyenSinyalModel
             {
-                _sinyaller = _SinyallerService.GetAll()
+                _sinyaller = _SinyallerService.GetAll().ToPagedList(pageNumber, pageSize)
             };
             return View(model);
         }

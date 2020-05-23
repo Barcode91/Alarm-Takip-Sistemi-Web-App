@@ -10,22 +10,16 @@
     var kimlik = Model.MusteriBilgiler;
     var sinyaller = Model.MusteriSinyaller;
     var aranacak = Model.Aranacaklars;
-    Layout = null;
+    var isSinyal = Model.IslenmisSinyallers;
+    Layout = "_Layout";
 }
 
 <!doctype html>
 <html lang="en">
 
-<head>
-    <title>Müşteri Paneli</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style type="text/css">
+
+ <style type="text/css">
         .par {
             display: inline;
         }
@@ -42,10 +36,10 @@
 
        
     </style>
-  
-</head>
 
-<body>
+
+
+
     <nav class="navbar navbar-expand navbar-dark bg-primary justify-content-center">
         <a class="navbar-brand" href="#">Anasayfa</a>
 
@@ -56,8 +50,12 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link active" href="#sinyaller" data-toggle="tab">Sinyaller</a>
+                    <a class="nav-link active" href="#sinyaller" data-toggle="tab">Bekleyen Sinyaller</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="#Issinyaller" data-toggle="tab">İşlenmiş Sinyaller</a>
+                </li>
+                
                 <li class="nav-item active">
                     <a class="nav-link" href="#parola" data-toggle="tab">Parola İşlemleri</a>
                 </li>
@@ -213,66 +211,158 @@
                             <input asp-for="MusteriBilgiler.Parola" class="form-control" type="password" required
                                    placeholder="Şifreniz en az 4 karakter olmalı">
                         </div>
-                        <!--
-                        Şifre Eşleşme işine daha sonra bak-------------
-                        <div class="form-group">
-                            <label for="">Parolayı Tekrar Giriniz</label>
-                            <input class="form-control" type="password" name="sifrecont" id="sifrecont">
-                        </div>
-                        -->
                         <input type="hidden" asp-for="MusteriBilgiler.MusteriId" />
                         <input type="submit" class="btn btn-success" name="" id="" value="Gönder">
                     </form>
-
-
                 </div>
-
-
-
-
             </div>
             <div class="tab-pane active" id="sinyaller">
                 <table class="table table-striped table-hover table-sm">
                     <thead class="thead">
-                        <td>Sinyal Tarihi</td>
-                        <td>Sinyal Saati</td>
-                        <td>Sinyal Kodu</td>
-                        <td>Bölge No</td>
-                        <td>Zone</td>
-                        <td>Sinyal Açıklama</td>
+                    <td>Sid</td>
+                    <td>Abone No</td>
+                    <td>Sinyal Tarihi</td>
+                    <td>Sinyal Saati</td>
+                    <td>İşl.Saati</td>
+                                   <td>İşl.Tarihi</td>
+                                   <td>Sinyal Kodu</td>
+                                   <td>Bölge No</td>
+                                   <td>Zone</td>
+                                   <td>Operatör</td>
+                    <td>Sinyal Açıklama</td>
+                    
                     </thead>
                     <tbody>
                     @foreach (var sinyal in sinyaller)
                         {
-                            if (sinyal.SinyalKod == "E400")
-                            {
-                                <tr class="bg-danger">
-                                    <td >@sinyal.SinyalTarih</td>
-                                    <td >@sinyal.SinyalSaat</td>
-                                    <td >@sinyal.SinyalKod</td>
-                                    <td >@sinyal.Bolum</td>
-                                    <td >@sinyal.Zone</td>
-                                    <td>ger erertertre ertertertertert asdsadasdasdasdasd</td>
-                                </tr>
-                            }
-                            else
-                            {
-                                <tr class="bg-light">
-                                    <td >@sinyal.SinyalTarih</td>
-                                    <td >@sinyal.SinyalSaat</td>
-                                    <td >@sinyal.SinyalKod</td>
-                                    <td >@sinyal.Bolum</td>
-                                    <td >@sinyal.Zone</td>
-                                    <td>ger erertertre ertertertertert asdsadasdasdasdasd</td>
-                                </tr>
-                            }
+                           if (sinyal.SinyalKod== "E200" ||
+                    sinyal.SinyalKod=="E211"||
+                    sinyal.SinyalKod=="E222"||
+                    sinyal.SinyalKod=="E233"||
+                    sinyal.SinyalKod=="E255")
+                {
+                    <tr class="bg-danger" >
+                        <td>@sinyal.SinyalId</td>
+                        <td>@sinyal.AboneNo</td>
+                        <td>@sinyal.SinyalTarih</td>
+                        <td>@sinyal.SinyalSaat</td>
+                        <td></td>
+                        <td></td>
+                        <td>@sinyal.SinyalKod</td>
+                        <td>@sinyal.Bolum</td>
+                        <td>@sinyal.Zone</td>
+                        <td></td>
+                        <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E400" ||
+                    sinyal.SinyalKod=="E401")
+                {
+                    <tr class="bg-success" >
+                        <td>@sinyal.SinyalId</td>
+                                                <td>@sinyal.AboneNo</td>
+                                                <td>@sinyal.SinyalTarih</td>
+                                                <td>@sinyal.SinyalSaat</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>@sinyal.SinyalKod</td>
+                                                <td>@sinyal.Bolum</td>
+                                                <td>@sinyal.Zone</td>
+                                                <td></td>
+                                                <td>@sinyal.SinyalTAnim</td>
+                        
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E402" )
+                {
+                    <tr class="bg-warning" >
+                       <td>@sinyal.SinyalId</td>
+                                               <td>@sinyal.AboneNo</td>
+                                               <td>@sinyal.SinyalTarih</td>
+                                               <td>@sinyal.SinyalSaat</td>
+                                               <td></td>
+                                               <td></td>
+                                               <td>@sinyal.SinyalKod</td>
+                                               <td>@sinyal.Bolum</td>
+                                               <td>@sinyal.Zone</td>
+                                               <td></td>
+                                               <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E403" || sinyal.SinyalKod== "E405" )
+                {
+                    <tr class="bg-dark" >
+                         <td>@sinyal.SinyalId</td>
+                                                 <td>@sinyal.AboneNo</td>
+                                                 <td>@sinyal.SinyalTarih</td>
+                                                 <td>@sinyal.SinyalSaat</td>
+                                                 <td></td>
+                                                 <td></td>
+                                                 <td>@sinyal.SinyalKod</td>
+                                                 <td>@sinyal.Bolum</td>
+                                                 <td>@sinyal.Zone</td>
+                                                 <td></td>
+                                                 <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E140" )
+                {
+                    <tr class="bg-secondary" >
+                       <td>@sinyal.SinyalId</td>
+                                               <td>@sinyal.AboneNo</td>
+                                               <td>@sinyal.SinyalTarih</td>
+                                               <td>@sinyal.SinyalSaat</td>
+                                               <td></td>
+                                               <td></td>
+                                               <td>@sinyal.SinyalKod</td>
+                                               <td>@sinyal.Bolum</td>
+                                               <td>@sinyal.Zone</td>
+                                               <td></td>
+                                               <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E120" )
+                {
+                    <tr class="bg-info" >
+                        <td>@sinyal.SinyalId</td>
+                                                <td>@sinyal.AboneNo</td>
+                                                <td>@sinyal.SinyalTarih</td>
+                                                <td>@sinyal.SinyalSaat</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>@sinyal.SinyalKod</td>
+                                                <td>@sinyal.Bolum</td>
+                                                <td>@sinyal.Zone</td>
+                                                <td></td>
+                                                <td>@sinyal.SinyalTAnim</td>
+                        
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E100" )
+                {
+                    <tr class="bg-dark" >
+                        <td>@sinyal.SinyalId</td>
+                                                <td>@sinyal.AboneNo</td>
+                                                <td>@sinyal.SinyalTarih</td>
+                                                <td>@sinyal.SinyalSaat</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>@sinyal.SinyalKod</td>
+                                                <td>@sinyal.Bolum</td>
+                                                <td>@sinyal.Zone</td>
+                                                <td></td>
+                                                <td>@sinyal.SinyalTAnim</td>
+                        
+                    </tr>  
+                }
+                            <!--
                             <tr>
                                 <td colspan="3" align="center">
                                     <pager list="@sinyaller" asp-controller="Musteri" asp-action="index"/>
                                 </td>
                                 
                             </tr>
-                          
+                          -->
                         }
                         
                         
@@ -281,9 +371,163 @@
                     </tbody>
                 </table>
             </div>
+             <div class="tab-pane" id="Issinyaller">
+                            <table class="table table-striped table-hover table-sm">
+                                <thead class="thead">
+                                <td>Sid</td>
+                                <td>Abone No</td>
+                                <td>Sinyal Tarihi</td>
+                                <td>Sinyal Saati</td>
+                                <td>İşl.Saati</td>
+                                               <td>İşl.Tarihi</td>
+                                               <td>Sinyal Kodu</td>
+                                               <td>Bölge No</td>
+                                               <td>Zone</td>
+                                               <td>Operatör</td>
+                                <td>Sinyal Açıklama</td>
+                                
+                                </thead>
+                                <tbody>
+                                @foreach (var sinyal in isSinyal)
+                                    {
+                                        if (sinyal.SinyalKod== "E200" ||
+                    sinyal.SinyalKod=="E211"||
+                    sinyal.SinyalKod=="E222"||
+                    sinyal.SinyalKod=="E233"||
+                    sinyal.SinyalKod=="E255")
+                {
+                    <tr class="bg-danger" >
+                        <td>@sinyal.SinyalId</td>
+                        <td>@sinyal.AboneNo</td>
+                        <td>@sinyal.SinyalTarih</td>
+                        <td>@sinyal.SinyalSaat</td>
+                        <td>@sinyal.IslemSaat</td>
+                        <td>@sinyal.IslemTarih</td>
+                        <td>@sinyal.SinyalKod</td>
+                        <td>@sinyal.Bolum</td>
+                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.OperatorId</td>
+                        <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E400" ||
+                    sinyal.SinyalKod=="E401")
+                {
+                    <tr class="bg-success" >
+                         <td>@sinyal.SinyalId</td>
+                                                <td>@sinyal.AboneNo</td>
+                                                <td>@sinyal.SinyalTarih</td>
+                                                <td>@sinyal.SinyalSaat</td>
+                                                <td>@sinyal.IslemSaat</td>
+                                                <td>@sinyal.IslemTarih</td>
+                                                <td>@sinyal.SinyalKod</td>
+                                                <td>@sinyal.Bolum</td>
+                                                <td>@sinyal.Zone</td>
+                                                <td>@sinyal.OperatorId</td>
+                        <td>@sinyal.SinyalTAnim</td>
+                        
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E402" )
+                {
+                    <tr class="bg-warning" >
+                        <td>@sinyal.SinyalId</td>
+                                               <td>@sinyal.AboneNo</td>
+                                               <td>@sinyal.SinyalTarih</td>
+                                               <td>@sinyal.SinyalSaat</td>
+                                               <td>@sinyal.IslemSaat</td>
+                                               <td>@sinyal.IslemTarih</td>
+                                               <td>@sinyal.SinyalKod</td>
+                                               <td>@sinyal.Bolum</td>
+                                               <td>@sinyal.Zone</td>
+                                               <td>@sinyal.OperatorId</td>
+                                               <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E403" || sinyal.SinyalKod== "E405" )
+                {
+                    <tr class="bg-dark" >
+                         <td>@sinyal.SinyalId</td>
+                                                <td>@sinyal.AboneNo</td>
+                                                <td>@sinyal.SinyalTarih</td>
+                                                <td>@sinyal.SinyalSaat</td>
+                                                <td>@sinyal.IslemSaat</td>
+                                                <td>@sinyal.IslemTarih</td>
+                                                <td>@sinyal.SinyalKod</td>
+                                                <td>@sinyal.Bolum</td>
+                                                <td>@sinyal.Zone</td>
+                                                <td>@sinyal.OperatorId</td>
+                                                <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E140" )
+                {
+                    <tr class="bg-secondary" >
+                        <td>@sinyal.SinyalId</td>
+                                               <td>@sinyal.AboneNo</td>
+                                               <td>@sinyal.SinyalTarih</td>
+                                               <td>@sinyal.SinyalSaat</td>
+                                               <td>@sinyal.IslemSaat</td>
+                                               <td>@sinyal.IslemTarih</td>
+                                               <td>@sinyal.SinyalKod</td>
+                                               <td>@sinyal.Bolum</td>
+                                               <td>@sinyal.Zone</td>
+                                               <td>@sinyal.OperatorId</td>
+                        <td>@sinyal.SinyalTAnim</td>
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E120" )
+                {
+                    <tr class="bg-info" >
+                        <td>@sinyal.SinyalId</td>
+                        
+                        <td>@sinyal.AboneNo</td>
+                        
+                        <td>@sinyal.SinyalTarih</td>
+                        
+                        <td>@sinyal.SinyalSaat</td>
+                        
+                        <td>@sinyal.IslemSaat</td>
+                        
+                                               <td>@sinyal.IslemTarih</td>
+                                               <td>@sinyal.SinyalKod</td>
+                                               <td>@sinyal.Bolum</td>
+                                               <td>@sinyal.Zone</td>
+                                               <td>@sinyal.OperatorId</td>
+                        <td>@sinyal.SinyalTAnim</td>
+                        
+                    </tr>  
+                }
+                if (sinyal.SinyalKod== "E100" )
+                {
+                    <tr class="bg-dark" >
+                        <td>@sinyal.SinyalId</td>
+                                               <td>@sinyal.AboneNo</td>
+                                               <td>@sinyal.SinyalTarih</td>
+                                               <td>@sinyal.SinyalSaat</td>
+                                               <td>@sinyal.IslemSaat</td>
+                                               <td>@sinyal.IslemTarih</td>
+                                               <td>@sinyal.SinyalKod</td>
+                                               <td>@sinyal.Bolum</td>
+                                               <td>@sinyal.Zone</td>
+                                               <td>@sinyal.OperatorId</td>
+                        <td>@sinyal.SinyalTAnim</td>
+                        
+                    </tr>  
+                }
+                                      
+                                       
+                                    }
+                                    
+                                    
+                               
+                                
+                                </tbody>
+                            </table>
+                        </div>
         </div>
     </div>
-      <script>
+<script>
             function kontrol() {
                 var sifrebir = document.getElementById("sifre").nodeValue;
                 var sifreconbir = document.getElementById("sifrecont").nodeValue;
@@ -294,17 +538,5 @@
               
             }    
         </script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
 
-</html>
+    

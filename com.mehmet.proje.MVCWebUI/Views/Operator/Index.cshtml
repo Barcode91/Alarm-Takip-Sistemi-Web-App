@@ -5,20 +5,11 @@
 @{
     Layout="_OperatorLayout";
     string aboneNo;
-    var sayac = 1;
- 
- //<a class="btn btn-success" asp-controller="Operator" asp-action="SinyalIslem" asp-route-id="@sinyal.SinyalId" asp-route-aboneNo="@sinyal.AboneNo">işlem Yap</a>   
-   
-    
-    
-    
-    
+    var sayac = 1;    
 }
 @if (!string.IsNullOrEmpty((string)TempData["info"]))
 {
-    <script>
-    
-    
+    <script>    
      alert(@TempData["info"]) </script>
 }
 
@@ -36,10 +27,7 @@
             color: royalblue;
 
         }
-    </style>
-    
-
-    <br>
+    </style><br>
 <div class="container-fluid">
 <div class="tab-content" >
 <div class="tab-pane" id="kimlik">
@@ -126,6 +114,8 @@
             <td>Sinyal Kodu</td>
             <td>Bölge No</td>
             <td>Sinyal Tanım</td>
+            <td></td>
+            <td></td>
             </thead>
             <tbody style="cursor: pointer;">
             @foreach (var sinyal in Model.Sinyallers)
@@ -146,6 +136,52 @@
                     <td>@sinyal.SinyalKod</td>
                     <td>@sinyal.Bolum</td>
                     <td>@sinyal.SinyalTAnim</td>
+                    @if (sinyal.SinyalKod== "E200" ||
+                                        sinyal.SinyalKod=="E211"||
+                                        sinyal.SinyalKod=="E222"||
+                                        sinyal.SinyalKod=="E233"||
+                                        sinyal.SinyalKod=="E255")
+                                    {
+                                        <td><div class="spinner-grow text-danger" ></div></td>
+                                    }
+                                    else if (sinyal.SinyalKod== "E400" ||
+                                        sinyal.SinyalKod=="E401")
+                                    {
+                                        <td><div class="spinner-grow text-success" ></div></td>
+                                    }
+                                    else if (sinyal.SinyalKod== "E402" )
+                                    {
+                                        <td><div class="spinner-grow text-warning" ></div></td>
+                                    }
+                                    else if (sinyal.SinyalKod== "E403" || sinyal.SinyalKod== "E405" )
+                                    {
+                                        <td><div class="spinner-grow text-dark" ></div></td>
+                                    }
+                                    else if (sinyal.SinyalKod== "E140" )
+                                    {
+                                        <td><div class="spinner-grow text-primary" ></div></td>
+                                    }
+                                    else if (sinyal.SinyalKod== "E120" )
+                                    {
+                                          <td><div class="spinner-grow text-info" ></div></td>
+                                    }
+                                    else if (sinyal.SinyalKod== "E100" )
+                                    {
+                                        <td><div class="spinner-grow text-dark" ></div></td>
+                                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <td>
                         <button class="btn btn-success" data-toggle="modal" data-target="#musteriAyrinti"
                                 onclick="getModal('@sinyal.AboneNo',@sinyal.SinyalId)">işlem Yap</button> </td>
@@ -158,13 +194,7 @@
             </tbody>
         </table>
 
-    </div>
-
- 
-
-
-
-</div>
+    </div></div>
 </div>
 </div>
 <div class="modal fade" id="musteriAyrinti" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -406,6 +436,7 @@ function bilgiguncelle() {
        },
        success: function(sonuc) {
          $("#sonucbilgi").html(sonuc);
+         
        }    
        });   
   
@@ -416,17 +447,10 @@ function temizle() {
         $("input[name=sifre]").val("");
         $("input[name=sifrecont]").val("");
         $("input[name=OpId]").val("");
-        $("h6").val("");
-        
+        $("h6").val("");      
     
     }
-
-
-
-
-
-
-
 </script>
 
 
+        
