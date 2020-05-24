@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using com.mehmet.oracle.entities.BaseClasses;
 using com.mehmet.proje.Business.Interfaces;
 using com.mehmet.proje.DataAccess.SoyutSiniflar;
@@ -38,6 +39,11 @@ namespace com.mehmet.proje.Business.Manager
         public List<IslenmisSinyaller> GetAboneSinyal(string aboneNo)
         {
             return _islenmisSinyaller.GetList(x => x.AboneNo == aboneNo);
+        }
+
+        public List<IslenmisSinyaller> GetOperatorSinyal(string OpId)
+        {
+            return _islenmisSinyaller.GetList(x => x.OperatorId.Equals(OpId)).OrderByDescending(x=>x.SinyalId).ToList();
         }
     }
 }

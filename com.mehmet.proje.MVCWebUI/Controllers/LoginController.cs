@@ -129,6 +129,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                         HttpContext.SignInAsync(principal).Wait();
                         
                         
+                        
                         return RedirectToAction("Index", "Operator", personel);
                     }
                 }
@@ -227,7 +228,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                     HttpContext.SignInAsync(principal).Wait();
                         
                         
-                    return RedirectToAction("Index", "Operator", personel);
+                    return RedirectToAction("Index", "Operator", personel.PersonelId);
                 }
                 
                 

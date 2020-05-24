@@ -12,5 +12,6 @@ namespace com.mehmet.proje.Business.Interfaces
         void Update(IslenmisSinyaller sinyaller);
         void Delete(IslenmisSinyaller sinyaller);
         List<IslenmisSinyaller> GetAboneSinyal(string aboneNo);
+        List<IslenmisSinyaller> GetOperatorSinyal(string OpId);
     }
 }

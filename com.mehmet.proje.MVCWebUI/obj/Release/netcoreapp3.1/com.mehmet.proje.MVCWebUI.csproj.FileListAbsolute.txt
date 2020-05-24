@@ -106,3 +106,4 @@
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/X.PagedList.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/X.PagedList.Mvc.Core.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/X.PagedList.Web.Common.dll
+/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/PersonelSinyal.cshtml.g.cs

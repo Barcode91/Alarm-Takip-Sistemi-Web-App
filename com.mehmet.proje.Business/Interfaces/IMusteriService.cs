@@ -11,7 +11,7 @@ namespace com.mehmet.proje.Business.Interfaces
         Musteri Update(Musteri musteri);
         void Delete(Musteri musteri);
         string GetByAboneNo(int musteriId);
-        Musteri GetByAbone(string aboneNo);
+        Musteri GetAbone(string aboneNo);
         Musteri GetById(int musteriId);
         
         Musteri LoginCont(string aboneNo, string parola);

@@ -40,7 +40,7 @@ namespace com.mehmet.proje.MVCWebUI
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(config =>
                 {
-                    config.LoginPath = "/";
+                    config.LoginPath = "/Login";
                 });
             services.AddAuthorization(x => x.AddPolicy("UserClaimPositionPolicy", policy => policy.RequireClaim("gorevturu", "yönetici")));
             services.AddAuthorization(x => x.AddPolicy("UserClaimPositionPolicy2", policy => policy.RequireClaim("gorevturu", "operatör")));

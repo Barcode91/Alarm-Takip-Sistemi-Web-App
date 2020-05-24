@@ -127,6 +127,26 @@ namespace com.mehmet.genelTest
             //Assert.Equals(1,musteri.MusteriId);
             
         }
+        
+        [Test]
+        public void aratest() // Veri Erişim Katmanı Testi
+        {     
+            MusteriManager manager = new MusteriManager(new NhMusteriDal(new PostgreHelper()));
+
+            var musteri = manager.GetAbone("A1001");
+
+          
+            
+            
+             //Console.WriteLine("YAZ"+musteri.MusteriId);
+            
+            
+           
+           
+           
+            //Assert.Equals("A1001",musteri.AboneNo);
+            
+        }
 
         
         

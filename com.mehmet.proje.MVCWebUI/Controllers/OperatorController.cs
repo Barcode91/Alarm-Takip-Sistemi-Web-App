@@ -29,16 +29,20 @@ namespace com.mehmet.proje.MVCWebUI.Properties
         }
 
         public IActionResult Index(Personel personel)
-        {    //sinyaller tablosunda yer alan abone nolar getirilir.
+        {   
+            
+            //sinyaller tablosunda yer alan abone nolar getirilir.
             List<string> aboneler = _sinyallerService.GetSinyalAboneNo();
-           
+            
             List<TamMusteri> musteris = new List<TamMusteri>();
             // tüm sinyaller getirilir
             List<Sinyaller> listSin = _sinyallerService.GetAll();
+
+            List<IslenmisSinyaller> islemlerim = _islenmisSinyallerService.GetOperatorSinyal(personel.Kimlik);
             
             foreach (var abone in aboneler)
             {   TamMusteri tm = new TamMusteri();
-                tm._musteri = _musteriService.GetByAbone(abone);
+                tm._musteri = _musteriService.GetAbone(abone);
                 tm._aranacaklars = _aranacakService.GetAll(abone);
                 tm._sinyallers = _sinyallerService.GetAboneSinyal(abone);
                 tm.IslenmisSinyallers = _islenmisSinyallerService.GetAboneSinyal(abone);
@@ -49,7 +53,10 @@ namespace com.mehmet.proje.MVCWebUI.Properties
             {
                 personel = personel,
                TamMusteris = musteris,
-               Sinyallers = listSin
+               Sinyallers = listSin,
+               islemlerim = islemlerim
+               
+               
             };
             
             return View(operaTorModel);
@@ -91,7 +98,7 @@ namespace com.mehmet.proje.MVCWebUI.Properties
         {
             MusteriAddModel model = new MusteriAddModel
             {
-                musteri = _musteriService.GetByAbone(aboneNo),
+                musteri = _musteriService.GetAbone(aboneNo),
                 Aranacaklars = _aranacakService.GetAll(aboneNo)
             };
             

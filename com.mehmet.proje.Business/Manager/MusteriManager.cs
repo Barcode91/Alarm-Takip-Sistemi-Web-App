@@ -48,7 +48,7 @@ namespace com.mehmet.proje.Business.Manager
            return musteri.AboneNo;
         }
 
-        public Musteri GetByAbone(string aboneNo)
+        public Musteri GetAbone(string aboneNo)
         {
             return _musteriDal.Get(p => p.AboneNo == aboneNo);
         }

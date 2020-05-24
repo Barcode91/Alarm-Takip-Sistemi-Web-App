@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Security.Policy;
 using com.mehmet.oracle.entities.BaseClasses;
@@ -33,7 +34,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
       
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("BekleyenSinyal");
         }
        
         public IActionResult Kayit()
@@ -93,34 +94,41 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
         [HttpPost]
         public IActionResult Aboneler(string aboneNo)
         {
+            
             AdminAbonelerModel abonelerModel;
             if (string.IsNullOrEmpty(aboneNo))
             {
-                abonelerModel = new AdminAbonelerModel
-                {   
-                    musteriler =  _musteriService.GetAll()
-                };
+                return RedirectToAction("Aboneler");
             }
             else
             {
+                Console.WriteLine("Birden fazla Abone --------"+aboneNo);
                 abonelerModel = new AdminAbonelerModel
-                {   
-                    
-                    tekMusteri = _musteriService.GetByAbone(aboneNo)
-                       
-                    
-                };
-            }
+                {
+                    tekMusteri = _musteriService.GetAbone(aboneNo)
 
-            if (abonelerModel.tekMusteri==null)
-            {
-                abonelerModel = new AdminAbonelerModel
-                {   
-                    musteriler =  _musteriService.GetAll()
                 };
+                
+                if (abonelerModel.tekMusteri==null)
+                {
+                    return RedirectToAction("Aboneler");
+                
+                }
+                List<Musteri> musteris = new List<Musteri>();
+                musteris.Add(abonelerModel.tekMusteri);
+                //abonelerModel.musteriler.Add(abonelerModel.tekMusteri);
+                Console.WriteLine("Birden fazla Abone --------"+abonelerModel.tekMusteri.Kimlik+"boyut   "+musteris.Count);
+                abonelerModel.musteriler = musteris;
+                //return RedirectToAction("Aboneler", "Admin", abonelerModel);
+                return View(abonelerModel);
             }
-           
-            return View(abonelerModel);
+            
+
+            
+            //Console.WriteLine("Birden fazla Abone"+abonelerModel.musteriler.Count);
+            //Console.WriteLine("Tek müşteri",abonelerModel.tekMusteri);
+            //TempData["mesaj"] =null;
+            //
         }
         
         
@@ -161,15 +169,18 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
             return View();
         }
 
-        public IActionResult AboneBilgi(int musteriId)
+        public IActionResult AboneBilgi(int musteriId, int? page)
         {
+            var pageNumber = page ?? 1; 
+            int pageSize = 2; 
             if (musteriId!=0)
             {
                 MusteriModel addModel = new MusteriModel()
                 {
                     MusteriBilgiler = _musteriService.GetById(musteriId),
                     Aranacaklars = _aranacakService.GetAll(_musteriService.GetByAboneNo(musteriId)),
-                    MusteriSinyaller = _SinyallerService.GetAboneSinyal(_musteriService.GetByAboneNo(musteriId))
+                    MusteriSinyaller = _SinyallerService.GetAboneSinyal(_musteriService.GetByAboneNo(musteriId)).OrderByDescending(x=>x.SinyalId).ToList().ToPagedList(pageNumber, pageSize),
+                    IslenmisSinyallers = _islenmisSinyallerService.GetAboneSinyal(_musteriService.GetByAboneNo(musteriId)).OrderByDescending(x=>x.SinyalId).ToList().ToPagedList(pageNumber, pageSize)
                     
                 };
                
@@ -273,8 +284,8 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
 
         public IActionResult BekleyenSinyal(int? page)
         {
-            var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
-            int pageSize = 2; // Get 25 students for each requested page.
+            var pageNumber = page ?? 1; 
+            int pageSize = 2; 
             //var bekleyenSinyal = _SinyallerService.GetAll().ToPagedList(pageNumber, pageSize);
                 
             
@@ -285,5 +296,17 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
             return View(model);
         }
 
+        
+        public IActionResult PersonelSinyal(String Kimlik)
+        {
+            Console.WriteLine(Kimlik);
+            PersonelSinyalIslemModel model = new PersonelSinyalIslemModel
+            {
+                IslenmisSinyallers = _islenmisSinyallerService.GetOperatorSinyal(Kimlik)
+            };
+            Console.WriteLine("VERİ SAYISI ",model.IslenmisSinyallers.Count());
+            ViewBag.kimlik = Kimlik;
+            return View(model);
+        }
     }
 }

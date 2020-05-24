@@ -7,10 +7,10 @@ namespace com.mehmet.proje.MVCWebUI.Models
     public class MusteriModel
     {
         public Musteri MusteriBilgiler { get; set; }
-        public List<Sinyaller> MusteriSinyaller { get; set; }
+        public IEnumerable<Sinyaller> MusteriSinyaller { get; set; }
         
         public List<Aranacaklar> Aranacaklars { get; set; }
-        public List<IslenmisSinyaller> IslenmisSinyallers { get; set; }
+        public IEnumerable<IslenmisSinyaller> IslenmisSinyallers { get; set; }
         
        
     }
