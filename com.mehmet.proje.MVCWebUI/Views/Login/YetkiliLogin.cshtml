@@ -1,0 +1,91 @@
+@using System.Collections.Specialized
+@model LoginModel
+
+@{
+    Layout = "_Layout";
+}
+<style type="text/css">
+
+  body{
+      background:url("/image/arkaplan.jpeg");
+      background-size:cover;
+    
+  
+}
+#baslik{
+background: url("/image/son1.jpg");
+ background-size:cover;
+      
+
+}
+
+
+
+</style>
+
+
+<div class="container"  >
+
+    <div class="jumbotron text-center" id="baslik">
+        <div class="container ml-xl-5 mt-xl-5">
+            <div class="row ml-sm-5">
+                <div class="col-mt-8 mb-4 ml-xl-3">
+                    <div class="spinner-grow text-danger" style="width:12rem; height:12rem; "></div>
+                </div>
+            <!--
+            <div class="col-md-4 text-center">
+                <h2 class="display-6 text-center"> <br> M.AKTAŞ <br> ANİ MÜDAHALE <br> ALARM TAKİP MERKEZİ
+                </h2>
+            </div>
+              
+            <div class="col-md-4">
+                <div class="spinner-grow text-primary" style="width:12rem; height:12rem; "></div>
+            </div>
+              -->
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+<div class="container col-md-3">
+    
+    <form class="form-signin" asp-controller="Login" asp-action="YetkiliLogin">
+          
+        <h1 class="h3 mb-3 font-weight-normal">GİRİŞ BİLGİLERİ</h1>
+        <label for="inputEmail" class="sr-only">TC. KİMLİK NO</label>
+        <input asp-for="aboneNo" type="text" id="inputEmail" class="form-control mb-1" max="11" placeholder="TC. Kimlik Numarası" required autofocus>
+        <label for="inputPassword" class="sr-only">ŞİFRE</label>
+        <input input asp-for="parola" type="password" id="inputPassword" class="form-control mb-1" placeholder="Şifre" required>
+          
+          
+        <div class="form-group-row">
+            <label class="col-from-label col-md-6"><strong>Görev Türü</strong></label>
+            <select asp-for="kullaniciTur" asp-items="Model.kullaniciTurler" class="form-control col-md-5"
+                    style="display: inline;"></select>
+        </div>
+        <button class="btn btn-md btn-success btn-block mb-3 mt-3" type="submit">GİRİŞ</button>
+        
+            @Html.ValidationMessage("Sonuc", new
+            {style="color:red;" }) 
+       
+        
+        
+    </form>
+</div>
+
+@section Scripts{
+<script>
+$('input').click(function() {
+  $('.field-validation-error').html(" ");
+});
+</script>
+}
+
+
+
+
+
+
+    

@@ -6,11 +6,26 @@
     <title>@ViewData["Title"] - M.AKTAS GÜVENLİK</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
-    <link rel="stylesheet" href="~/lib/jquery/dist/jquery.js"/>
+    <link Content-Type="text/css"  href="~/lib/jquery/dist/jquery.js"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
+    
 </head>
 <body>
+<style>
 
- @RenderBody()
+  body{
+      background:url("/image/arkaplan.jpeg") 0 0 no-repeat fixed;
+      background-size:cover;
+      -webkit-background-size:cover;
+      -moz-background-size:cover;
+      -o-background-size:cover;
+  
+}
+
+</style>
+
+@RenderBody()
 
 <footer class="border-top footer text-muted">
     <div class="container">

@@ -36,6 +36,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Chart.Mvc.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -296,6 +300,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Chart.js": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"

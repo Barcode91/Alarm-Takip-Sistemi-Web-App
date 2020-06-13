@@ -207,10 +207,10 @@
             <td>İşl.Saati</td>
             <td>İşl.Tarihi</td>
             <td>Sinyal Kodu</td>
-            <td>Bölge No</td>
-            <td>Zone</td>
+            <td>Bölge/Zone</td>
             <td>Operatör</td>
             <td>Sinyal Açıklama</td>
+            <td>İşlem</td>
             </thead>
             <tbody>
             @foreach(var sinyal in Model.islemlerim)
@@ -229,10 +229,11 @@
                         <td>@sinyal.IslemSaat</td>
                         <td>@sinyal.IslemTarih</td>
                         <td>@sinyal.SinyalKod</td>
-                        <td>@sinyal.Bolum</td>
-                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.Bolum/@sinyal.Zone</td>
+                       
                         <td>@sinyal.OperatorId</td>
                         <td>@sinyal.SinyalTAnim</td>
+                        <td>@sinyal.IslemAcıklama</td>
                     </tr>  
                 }
                 if (sinyal.SinyalKod== "E400" ||
@@ -247,10 +248,11 @@
                         <td>@sinyal.IslemSaat</td>
                         <td>@sinyal.IslemTarih</td>
                         <td>@sinyal.SinyalKod</td>
-                        <td>@sinyal.Bolum</td>
-                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.Bolum/@sinyal.Zone</td>
+                        
                         <td>@sinyal.OperatorId</td>
                         <td>@sinyal.SinyalTAnim</td>
+                        <td>@sinyal.IslemAcıklama</td>
                                     
                     </tr>  
                 }
@@ -264,10 +266,10 @@
                         <td>@sinyal.IslemSaat</td>
                         <td>@sinyal.IslemTarih</td>
                         <td>@sinyal.SinyalKod</td>
-                        <td>@sinyal.Bolum</td>
-                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.Bolum/@sinyal.Zone</td>
                         <td>@sinyal.OperatorId</td>
                         <td>@sinyal.SinyalTAnim</td>
+                        <td>@sinyal.IslemAcıklama</td>
                     </tr>  
                 }
                 if (sinyal.SinyalKod== "E403" || sinyal.SinyalKod== "E405" )
@@ -280,10 +282,11 @@
                         <td>@sinyal.IslemSaat</td>
                         <td>@sinyal.IslemTarih</td>
                         <td>@sinyal.SinyalKod</td>
-                        <td>@sinyal.Bolum</td>
-                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.Bolum/@sinyal.Zone</td>
+                       
                         <td>@sinyal.OperatorId</td>
                         <td>@sinyal.SinyalTAnim</td>
+                        <td>@sinyal.IslemAcıklama</td>
                     </tr>  
                 }
                 if (sinyal.SinyalKod== "E140" )
@@ -296,10 +299,11 @@
                         <td>@sinyal.IslemSaat</td>
                         <td>@sinyal.IslemTarih</td>
                         <td>@sinyal.SinyalKod</td>
-                        <td>@sinyal.Bolum</td>
-                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.Bolum/@sinyal.Zone</td>
+                        
                         <td>@sinyal.OperatorId</td>
                         <td>@sinyal.SinyalTAnim</td>
+                        <td>@sinyal.IslemAcıklama</td>
                     </tr>  
                 }
                 if (sinyal.SinyalKod== "E120" )
@@ -317,10 +321,11 @@
                                     
                         <td>@sinyal.IslemTarih</td>
                         <td>@sinyal.SinyalKod</td>
-                        <td>@sinyal.Bolum</td>
-                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.Bolum/@sinyal.Zone</td>
+                        
                         <td>@sinyal.OperatorId</td>
                         <td>@sinyal.SinyalTAnim</td>
+                        <td>@sinyal.IslemAcıklama</td>
                                     
                     </tr>  
                 }
@@ -334,10 +339,11 @@
                         <td>@sinyal.IslemSaat</td>
                         <td>@sinyal.IslemTarih</td>
                         <td>@sinyal.SinyalKod</td>
-                        <td>@sinyal.Bolum</td>
-                        <td>@sinyal.Zone</td>
+                        <td>@sinyal.Bolum/@sinyal.Zone</td>
+                        
                         <td>@sinyal.OperatorId</td>
                         <td>@sinyal.SinyalTAnim</td>
+                        <td>@sinyal.IslemAcıklama</td>
                                     
                     </tr>  
                 }
@@ -494,7 +500,10 @@
     </div>
   </div>
 </div>
+
+
 <script>
+
 function getModal(param, id) {
 
   $.post("https://localhost:5001/Operator/MusteriDetay", //post isteği atılır dönen json verisi modale yerleştirilir
@@ -600,7 +609,15 @@ function temizle() {
         $("h6").val("");      
     
     }
+    
+   
 </script>
+
+
+
+
+
+
 
 
         

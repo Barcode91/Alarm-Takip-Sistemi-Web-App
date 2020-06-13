@@ -1,115 +1,99 @@
+@using System.Collections.Specialized
 @model LoginModel
 
 @{
     Layout = "_Layout";
 }
+<style type="text/css">
 
-    <div class="jumbotron text-center">
+  body{
+      background:url("/image/arkaplan.jpeg") 0 0 no-repeat fixed;
+      background-size:cover;
+      -webkit-background-size:cover;
+      -moz-background-size:cover;
+      -o-background-size:cover;
+  
+}
+#baslik{
+background: url("/image/arkaplan3.jpg") 0 0 no-repeat fixed;
+ background-size:cover;
+      -webkit-background-size:cover;
+      -moz-background-size:cover;
+      -o-background-size:cover;
+
+}
+
+
+
+</style>
+
+<!--
+ <div class="jumbotron text-center">
         <h2> ALARM İZLEME MERKEZİNE HOŞ GELDİNİZ </h2>
     </div>
 
+--->
 
 
-    <div class="container col-md-6">
-        <form asp-controller="Login" asp-action="Index">
+<div class="container"  >
 
-            <div class="form-group">
-                <div class="form-group-row text-center">
-                    <label class=" col-md-3 col-from-label">Kullanıcı</label>
-                    <input asp-for="aboneNo" class="col-md-4 col-from-plaintext"
-                        placeholder="Size verilen Kullanıcı Kodu" required="Bu Alan Boş Geçilemez"><br>
-                </div>
-                <div class="form-group-row text-center">
-                    <label class="col-from-label col-md-3">Parola</label>
-                    <input asp-for="parola" type="password" class="col-from-plaintext col-md-4" required="Parola Bilgisini Giriniz"><br>
-
-                </div>
-
-                <div class="form-group-row text-center">
-                    <label class="col-from-label col-md-3">Kullanıcı Türü</label>
-                    <select asp-for="kullaniciTur" asp-items="Model.kullaniciTurler" class="form-control col-md-4"
-                            style="display: inline;">
-                        <!--
-                        <option value="">Muşte3333ri</option>
-                        <option value="">Admin</option>
-                        <option value="">Operatör</option>
-                        -->
-                    </select>
-                </div>
-            </div>
-            <!--
-            <div class="form-group-row text-center">
-                <div class="form-check-inline col-md-3">
-                    <label class="form-check-label ">
-                        <input type="checkbox" class="form-check-input" name="hatirla" id="hatirla" value="checkedValue">
-                        Beni Hatırla
-                    </label>
-                </div>
-                <div class="col-md-3" style="display: inline;" >
-                    <a href="">Şifremi Unuttum</a> 
-                </div>
-
-            </div>
-            -->
-            <br>
-            <div class="text-center">
-                <button class="btn btn-success col-md-6" type="submit" >GİRİŞ YAP</button>
-                <br/>
-                 @Html.ValidationMessage("Sonuc", new
-                                       {style="color:red;" })
-                
-                </div>
-            
-                
-
-
-
-
-            <!-- açılır menü örnek
-
-                 <div class="dropdown">
-                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" type="button">MENÜ</button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item">veri</a>
-                    <a class="dropdown-item">veri</a>
-                    <a class="dropdown-item">veri</a>
-                </div>
-            </div>
-
-
-            -->
-
-
-
-
-            <!--
-                <div class="form-group form-check-inline">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="as" id="" value="checkedValue">
-                    Beni Hatırla
-                </label>
-            </div>
-            <div class="form-group form-check-inline">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="as" id="" value="checkedValue">
-                    Beni Hatırla
-                </label>
-            </div>
-
-
-            -->
-
-
-
-
-
-          
-
-
-
-        </form>
+    <div class="jumbotron text-center" id="baslik">
+        <div class="container ml-xl-5 mt-xl-5">
+                   <div class="row ml-sm-5">
+                       <div class="col-mt-8 mb-4 ml-xl-3">
+                           <div class="spinner-grow text-danger" style="width:12rem; height:12rem; "></div>
+                       </div>
+                   <!--
+                   <div class="col-md-4 text-center">
+                       <h2 class="display-6 text-center"> <br> M.AKTAŞ <br> ANİ MÜDAHALE <br> ALARM TAKİP MERKEZİ
+                       </h2>
+                   </div>
+                     
+                   <div class="col-md-4">
+                       <div class="spinner-grow text-primary" style="width:12rem; height:12rem; "></div>
+                   </div>
+                     -->
+                   </div>
+               </div>
     </div>
+    
 
+</div>
+
+<div class="container col-md-3">
+    
+    <form class="form-signin" asp-controller="Login" asp-action="Index">
+          
+        <h1 class="h3 mb-3 font-weight-normal">GİRİŞ BİLGİLERİ</h1>
+        <label for="inputEmail" class="sr-only">TC. KİMLİK NO</label>
+        <input asp-for="aboneNo" type="text" id="inputEmail" class="form-control mb-1" max="11" placeholder="Abone Numarası" required autofocus>
+        <label for="inputPassword" class="sr-only">ŞİFRE</label>
+        <input input asp-for="parola" type="password" id="inputPassword" class="form-control mb-1" placeholder="Şifre" required>
+        <input type="hidden" asp-for="kullaniciTur" value="1" />
+        <button class="btn btn-md btn-success btn-block mb-3 mt-3" type="submit">GİRİŞ</button>
+        <span id="mesaj">
+            @Html.ValidationMessage("Sonuc", new
+            {style="color:red;" }) 
+        </span>
+       
+        
+    </form>
+</div>
+
+@section Scripts{
+<script>
+$('input').click(function() {
+  $('.field-validation-error').html(" ");
+});
+</script>
+}
+
+
+
+
+
+
+    
 
 
 

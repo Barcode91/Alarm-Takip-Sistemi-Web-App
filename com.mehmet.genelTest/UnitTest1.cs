@@ -25,13 +25,13 @@ namespace com.mehmet.genelTest
             
             
             var sinyal = new Sinyaller() { 
-               SinyalKod = "E200",SinyalNitelik = "YENİ",SinyalSaat = "03:20",SinyalTarih = "20.02.2020",IslemDurumu = 1,
-               AboneNo = "A1001",Bolum = "08",Zone = "12", SinyalTAnim = "Hırsızlık Alarmı"
+               SinyalKod = "E401",SinyalNitelik = "YENİ",SinyalSaat = "03:20",SinyalTarih = "23.06.2020",IslemDurumu = 1,
+               AboneNo = "A1231",Bolum = "08",Zone = "11", SinyalTAnim = "KUMANDALI NORMAL AÇILIŞ"
                 
             };
 
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 1; i++)
             {
                 var sonuc = sinyaller.Add(sinyal);
             }

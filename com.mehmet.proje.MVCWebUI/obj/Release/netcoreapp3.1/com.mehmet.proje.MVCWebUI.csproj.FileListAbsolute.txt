@@ -98,8 +98,6 @@
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/IslenmisSinyal.cshtml.g.cs
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/BekleyenSinyal.cshtml.g.cs
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/com.mehmet.proje.MVCWebUI.MvcApplicationPartsAssemblyInfo.cs
-/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Login/AdminLogin.cshtml.g.cs
-/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Login/OperatorLogin.cshtml.g.cs
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/Newtonsoft.Json.Bson.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/System.Text.Encodings.Web.dll
@@ -107,3 +105,6 @@
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/X.PagedList.Mvc.Core.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/X.PagedList.Web.Common.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/PersonelSinyal.cshtml.g.cs
+/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Login/YetkiliLogin.cshtml.g.cs
+/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/bin/Release/netcoreapp3.1/Chart.Mvc.Core.dll
+/home/memo/RiderProjects/com.mehmet/com.mehmet.proje.MVCWebUI/obj/Release/netcoreapp3.1/Razor/Views/Admin/Dashboard.cshtml.g.cs

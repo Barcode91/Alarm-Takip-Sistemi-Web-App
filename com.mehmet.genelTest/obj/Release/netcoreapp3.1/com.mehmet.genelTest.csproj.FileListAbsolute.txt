@@ -196,3 +196,5 @@
 /home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/bin/Release/netcoreapp3.1/X.PagedList.Mvc.Core.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/bin/Release/netcoreapp3.1/X.PagedList.Web.Common.dll
 /home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/bin/Release/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/System.Security.Cryptography.Pkcs.dll
+/home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/bin/Release/netcoreapp3.1/Chart.Mvc.Core.dll
+/home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/bin/Release/netcoreapp3.1/Microsoft.AspNetCore.Razor.dll

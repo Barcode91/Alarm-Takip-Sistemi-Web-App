@@ -2,7 +2,10 @@
     Layout="_Layout";
 }
 <nav class="navbar navbar-expand navbar-dark bg-primary justify-content-center">
-    <a class="navbar-brand" href="/">Anasayfa</a>
+    <a class="navbar-brand" href="#">
+            <img src="/image/icon1.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            Operatör
+        </a>
 
     <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav nav mr-auto">
@@ -34,3 +37,17 @@
     </div>
 </nav>
 @RenderBody()
+@section Scripts
+{
+    <script>
+      $("tr").click(function() {
+          
+         var isim= $(this).html();
+                //alert("tıkladı"+isim);
+              
+            });
+    
+    </script>
+   
+    
+}

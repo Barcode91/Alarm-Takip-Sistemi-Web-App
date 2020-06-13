@@ -96,8 +96,8 @@ namespace com.mehmet.core.DataAccess.NHibernate
 
             }
         }
-
-
+        
+       
         protected NhEntityRepositoryBase(NhibernateHelper nhibernateHelper)
         {
             _nhibernateHelper = nhibernateHelper;

@@ -63,6 +63,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                 try
                 {
                     // Veri tabanına kayıt işlemleri
+                    musteriAddModel.musteri.Parola = "1234";
                     _musteriService.Add(musteriAddModel.musteri);
                     foreach (var arakisi in musteriAddModel.Aranacaklars)
                     {
@@ -307,6 +308,131 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
             Console.WriteLine("VERİ SAYISI ",model.IslenmisSinyallers.Count());
             ViewBag.kimlik = Kimlik;
             return View(model);
+        }
+
+        public IActionResult Dashboard()
+        {
+            var sinyallers = _SinyallerService.GetAll();
+            var ist = sinyallers.OrderBy(x => x.SinyalKod)
+                .GroupBy(x => x.SinyalKod)
+                .Select(sinyalist => new sinyalIst {sinyalTur = sinyalist.Key, sinyalsayi = sinyalist.Count()});
+
+            var issinyaller = _islenmisSinyallerService.GetAll();
+            var isist = issinyaller.OrderBy(x => x.SinyalKod)
+                .GroupBy(x => x.SinyalKod)
+                .Select(sinyalist => new sinyalIst {sinyalTur = sinyalist.Key, sinyalsayi = sinyalist.Count()});
+                
+            List<int> islenmisIstsay = new List<int>();
+            List<string> islenmisIsttur = new List<string>();
+            
+            List<int> islenmemisIstsay = new List<int>();
+            List<string> islenmemisIsttur = new List<string>();
+            
+            foreach (var sayi in ist)
+            {
+                islenmemisIstsay.Add(sayi.sinyalsayi);
+                islenmemisIsttur.Add(sayi.sinyalTur);
+            }
+            
+            foreach (var sayi in isist)
+            {
+                islenmisIstsay.Add(sayi.sinyalsayi);
+                islenmisIsttur.Add(sayi.sinyalTur);
+            }
+
+            ViewBag.SINYALSAYI = islenmemisIstsay; // işlenmemiş sinyal sayiları
+            ViewBag.SINYALTUR = islenmemisIsttur; // işlenmemiş sinyal türleri
+            ViewBag.ISSINYALSAYI = islenmisIstsay; // işlenmiş sinyal sayiları
+            ViewBag.ISSINYALTUR = islenmisIsttur; // işlenmiş sinyal türleri
+           
+            //müşterilerin sinyal istatistlikleri
+            //x---abone no
+            //y--sinyal sayi
+            //işlenmemiş sinyaller
+            var aboneist = sinyallers.OrderBy(x => x.AboneNo)
+                .GroupBy(x => x.AboneNo)
+                .Select(sinyalist => new sinyalIst {sinyalTur = sinyalist.Key, sinyalsayi = sinyalist.Count()});
+            //işlenmiş sinyaller
+            var aboneisist = issinyaller.OrderBy(x => x.AboneNo)
+                .GroupBy(x => x.AboneNo)
+                .Select(sinyalist => new sinyalIst {sinyalTur = sinyalist.Key, sinyalsayi = sinyalist.Count()});
+            
+            List<int> islenmisAbnSay = new List<int>();
+            List<string> islenmisAbno = new List<string>();
+            
+            List<int> islenmemisAbnSay = new List<int>();
+            List<string> islenmemisAbno = new List<string>();
+            
+            foreach (var sayi in aboneist)
+            {
+                islenmemisAbnSay.Add(sayi.sinyalsayi); // Abone no
+                islenmemisAbno.Add(sayi.sinyalTur); // sinyal sayıları
+            }
+            
+            foreach (var sayi in aboneisist)
+            {
+                islenmisAbnSay.Add(sayi.sinyalsayi);
+                islenmisAbno.Add(sayi.sinyalTur);
+            }
+
+            ViewBag.ISLENMISABNSAY = islenmisAbnSay;
+            ViewBag.ISLENMISABNO = islenmisAbno;
+            ViewBag.ISLENMEMISABNSAY = islenmemisAbnSay;
+            ViewBag.ISLENMEMISABNO = islenmemisAbno;
+            
+            
+            //Tarihe göre sinyal sayıları
+            var Tarihist = sinyallers.OrderByDescending(x => x.SinyalTarih)
+                .GroupBy(x => x.SinyalTarih)
+                .Select(Tarihist => new sinyalIst {sinyalTur = Tarihist.Key, sinyalsayi = Tarihist.Count()});
+            //işlenmiş sinyaller
+            var Tarihisist = issinyaller.OrderByDescending(x => x.SinyalTarih)
+                .GroupBy(x => x.SinyalTarih)
+                .Select(Tarihisist => new sinyalIst {sinyalTur = Tarihisist.Key, sinyalsayi = Tarihisist.Count()});
+            
+            List<int> islenmisTarihSay = new List<int>();
+            List<string> islenmisTarih = new List<string>();
+            
+            List<int> islenmemisTarihSay = new List<int>();
+            List<string> islenmemisTarih = new List<string>();
+            
+            foreach (var sayi in Tarihisist)
+            {
+                islenmisTarihSay.Add(sayi.sinyalsayi); // sinyal sayıları
+                islenmisTarih.Add(sayi.sinyalTur); //  Tarihler
+            }
+            
+            foreach (var sayi in Tarihist)
+            {
+                islenmemisTarihSay.Add(sayi.sinyalsayi);
+                islenmemisTarih.Add(sayi.sinyalTur);
+            }
+            
+            ViewBag.ISLENMISTRHSAY = islenmisTarihSay;
+            ViewBag.ISLENMISTRH = islenmisTarih;
+            ViewBag.ISLENMEMISTRHSAY = islenmemisTarihSay;
+            ViewBag.ISLENMEMISTRH = islenmemisTarih;
+            
+            
+            //Operatör istatistikleri
+            var operatr = issinyaller.OrderByDescending(x => x.OperatorId)
+                .GroupBy(x => x.OperatorId)
+                .Select(operatr => new sinyalIst {sinyalTur = operatr.Key, sinyalsayi = operatr.Count()});
+            
+            List<int> operSayi = new List<int>();
+            List<string> operId = new List<string>();
+            
+            foreach (var sayi in operatr)
+            {
+                operSayi.Add(sayi.sinyalsayi); // sinyal sayıları
+                operId.Add(sayi.sinyalTur); //  operatör id
+            }
+            
+            ViewBag.OPERATORSAY = operSayi;
+            ViewBag.OPERATORNO = operId;
+            
+
+            return View();
         }
     }
 }
