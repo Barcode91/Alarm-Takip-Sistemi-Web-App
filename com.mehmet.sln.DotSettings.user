@@ -13,6 +13,11 @@
     &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3ac31400_002D21eb_002D4463_002Dbb14_002D148c2f46c792/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="Test1 #5" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.Test1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=40a7d7ee_002Da228_002D479d_002Db6eb_002D39a0bbcd7cad/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="aratest" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::D24ECD72-BB52-4A93-9CFF-B7865C75A124::.NETCoreApp,Version=v3.1::com.mehmet.genelTest.Tests.aratest&lt;/TestId&gt;

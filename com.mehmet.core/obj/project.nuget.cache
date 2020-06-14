@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "iqVZy/ljhLaxYbZd+ZqSMXfeSwDIA0O+jAmsZXq2S5xEhLWgpzPNx9TV/2e00HYNUjC2w2KDJ3IaSB4rF/Yf0g==",
+  "dgSpecHash": "2UaU/3L1DRapkLK2MTxEWEHVm4wbi4kvQRZSIc3WIe48zX9JyY0mNZlODoijDXYYYjqfwQ1Np4XlsNIGJd6bNQ==",
   "success": true,
   "projectFilePath": "/home/memo/RiderProjects/com.mehmet/com.mehmet.core/com.mehmet.core.csproj",
   "expectedPackageFiles": [
     "/home/memo/.nuget/packages/antlr3.runtime/3.5.1/antlr3.runtime.3.5.1.nupkg.sha512",
+    "/home/memo/.nuget/packages/chart.js/2.9.3/chart.js.2.9.3.nupkg.sha512",
     "/home/memo/.nuget/packages/chart.mvc.core/1.1.0/chart.mvc.core.1.1.0.nupkg.sha512",
     "/home/memo/.nuget/packages/entityframework/6.4.0/entityframework.6.4.0.nupkg.sha512",
     "/home/memo/.nuget/packages/fluentnhibernate/2.1.2/fluentnhibernate.2.1.2.nupkg.sha512",

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "iKr3SrJil8bMzC7qpxBwOuIG2ynONRbDjvfC753NIEoLx4ZakUowgkcLwFQS6XZXxItbJXJBbKvin4D+CK1I+A==",
+  "dgSpecHash": "AUPUSIbHcf5XXQsECQ1oB8zKwT9wX3MyQNEJqqhID4yYoRch6bknmU0KBVMFXn2lUJMocy5AcK9vhEipZiD9eQ==",
   "success": true,
   "projectFilePath": "/home/memo/RiderProjects/com.mehmet/com.mehmet.genelTest/com.mehmet.genelTest.csproj",
   "expectedPackageFiles": [
     "/home/memo/.nuget/packages/antlr3.runtime/3.5.1/antlr3.runtime.3.5.1.nupkg.sha512",
     "/home/memo/.nuget/packages/castle.core/4.4.0/castle.core.4.4.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/chart.js/2.9.3/chart.js.2.9.3.nupkg.sha512",
     "/home/memo/.nuget/packages/chart.mvc.core/1.1.0/chart.mvc.core.1.1.0.nupkg.sha512",
     "/home/memo/.nuget/packages/entityframework/6.4.0/entityframework.6.4.0.nupkg.sha512",
     "/home/memo/.nuget/packages/fluentnhibernate/2.1.2/fluentnhibernate.2.1.2.nupkg.sha512",

@@ -23,12 +23,10 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
         public IActionResult Index(int? page)
         {    
             var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
-            int pageSize = 2; // Get 25 students for each requested page.
-            var sinyaller = _sinyallerService.GetAll().ToPagedList(pageNumber, pageSize);
+            int pageSize = 30; // Get 25 students for each requested page.
+            var sinyaller = _sinyallerService.GetAll().OrderByDescending(x=>x.SinyalId).ToPagedList(pageNumber, pageSize);
             return View(sinyaller);
 
-            //var sinyaller = _sinyallerService.GetAll();
-            //return View(sinyaller);
         }
     }
 }

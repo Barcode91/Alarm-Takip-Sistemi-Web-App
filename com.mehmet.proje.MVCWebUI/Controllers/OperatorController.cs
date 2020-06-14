@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using com.mehmet.oracle.entities.BaseClasses;
 using com.mehmet.oracle.entities.ComplexClasses;
 using com.mehmet.proje.Business.Interfaces;
@@ -36,7 +37,7 @@ namespace com.mehmet.proje.MVCWebUI.Properties
             
             List<TamMusteri> musteris = new List<TamMusteri>();
             // tüm sinyaller getirilir
-            List<Sinyaller> listSin = _sinyallerService.GetAll();
+            IEnumerable<Sinyaller> listSin = _sinyallerService.GetAll().ToList().OrderByDescending(x=>x.SinyalId);
 
             List<IslenmisSinyaller> islemlerim = _islenmisSinyallerService.GetOperatorSinyal(personel.Kimlik);
             

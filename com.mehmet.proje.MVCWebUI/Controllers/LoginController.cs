@@ -30,7 +30,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
         {
             kullaniciTurler = new List<SelectListItem>
             {
-                new SelectListItem(text:"Müşteri", value:"1"),
+                
                 new SelectListItem(text:"Operatör", value:"2"),
                 new SelectListItem(text:"Yönetici", value:"3"),}
         };
@@ -190,15 +190,11 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                             new Claim(ClaimTypes.Name, model.aboneNo),
                             new Claim("gorevturu","operatör")
                         };
- 
                         var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         Console.WriteLine("operator"+userIdentity.Name);
                         ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                         Console.WriteLine("operator"+principal.ToString());
                         HttpContext.SignInAsync(principal).Wait();
-                        
-                        
-                        
                         return RedirectToAction("Index", "Operator", personel);
                     }
                 }
@@ -207,22 +203,18 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
                     var personel = _personelService.LoginCont(model.aboneNo, model.parola);
                     if (personel!=null && personel.GorevTur=="yönetici")
                     {
-                        
                         var claims = new List<Claim>
                         {
                             new Claim(ClaimTypes.Name, model.aboneNo),
                             new Claim("gorevturu","yönetici")
                             
                         };
- 
                         var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
- 
                         ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                         await HttpContext.SignInAsync(principal);
                         return RedirectToAction("Index", "Admin", personel);
                     }
                 }
-
             }
             if (!ModelState.IsValid) // Bilgiler Eksikse
             {   ModelState.AddModelError("Sonuc","Giriş Bilgileriniz Hatalı...");

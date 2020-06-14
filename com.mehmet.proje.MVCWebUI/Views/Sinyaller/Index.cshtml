@@ -5,11 +5,11 @@
 @{
     Layout = "_Layout";
 }
-
+<meta http-equiv="refresh" content="5"/>
  <script type = "text/JavaScript">
          <!--
             function AutoRefresh( t ) {
-               setTimeout("location.reload(true);", t);
+               setTimeout("location.reload(true);", 5000);
             }
          //-->
       </script>
@@ -92,7 +92,7 @@
                 }
                 if (sinyal.SinyalKod== "E403" || sinyal.SinyalKod== "E405" )
                 {
-                    <tr class="bg-dark" >
+                    <tr class="bg-primary" >
                         <td>@sinyal.SinyalId</td>
                         <td>@sinyal.AboneNo</td>
                         <td>@sinyal.SinyalTarih</td>

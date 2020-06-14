@@ -14,6 +14,9 @@
           "lib/netstandard1.1/Antlr3.Runtime.dll": {}
         }
       },
+      "Chart.js/2.9.3": {
+        "type": "package"
+      },
       "Chart.Mvc.Core/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -1836,6 +1839,21 @@
         "lib/netstandard1.1/Antlr3.Runtime.xml",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr3.Runtime.dll",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Antlr3.Runtime.xml"
+      ]
+    },
+    "Chart.js/2.9.3": {
+      "sha512": "SY8PuXOJANgsEGMtuXPb/gxazfXdySUuFwTPbQUbw/YKiltR6FJ3mXrLFpr6N2MSCS7oUtfOhTotxLifyJcQNA==",
+      "type": "package",
+      "path": "chart.js/2.9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "chart.js.2.9.3.nupkg.sha512",
+        "chart.js.nuspec",
+        "content/Content/Chart.css",
+        "content/Content/Chart.min.css",
+        "content/Scripts/Chart.js",
+        "content/Scripts/Chart.min.js"
       ]
     },
     "Chart.Mvc.Core/1.1.0": {
@@ -6018,6 +6036,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Chart.Mvc.Core >= 1.1.0",
+      "Chart.js >= 2.9.3",
       "EntityFramework >= 6.4.0",
       "FluentNHibernate >= 2.1.2",
       "Microsoft.AspNetCore.Mvc.Cors >= 2.2.0",
@@ -6067,6 +6086,10 @@
           "Chart.Mvc.Core": {
             "target": "Package",
             "version": "[1.1.0, )"
+          },
+          "Chart.js": {
+            "target": "Package",
+            "version": "[2.9.3, )"
           },
           "EntityFramework": {
             "target": "Package",

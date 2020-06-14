@@ -173,7 +173,7 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
         public IActionResult AboneBilgi(int musteriId, int? page)
         {
             var pageNumber = page ?? 1; 
-            int pageSize = 2; 
+            int pageSize = 30; 
             if (musteriId!=0)
             {
                 MusteriModel addModel = new MusteriModel()
@@ -275,10 +275,10 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
         public IActionResult IslenmisSinyal(int? page)
         {
             var pageNumber = page ?? 1; 
-            int pageSize = 2; 
+            int pageSize = 30; 
             TumSinyaller model = new TumSinyaller
             {
-                _islenmisSinyal = _islenmisSinyallerService.GetAll().ToPagedList(pageNumber,pageSize)
+                _islenmisSinyal = _islenmisSinyallerService.GetAll().OrderByDescending(x=>x.SinyalId).ToPagedList(pageNumber,pageSize)
             };
             return View(model);
         }
@@ -286,13 +286,10 @@ namespace com.mehmet.proje.MVCWebUI.Controllers
         public IActionResult BekleyenSinyal(int? page)
         {
             var pageNumber = page ?? 1; 
-            int pageSize = 2; 
-            //var bekleyenSinyal = _SinyallerService.GetAll().ToPagedList(pageNumber, pageSize);
-                
-            
+            int pageSize = 30;
             BekleyenSinyalModel model = new BekleyenSinyalModel
             {
-                _sinyaller = _SinyallerService.GetAll().ToPagedList(pageNumber, pageSize)
+                _sinyaller = _SinyallerService.GetAll().OrderByDescending(x=>x.SinyalId).ToPagedList(pageNumber, pageSize)
             };
             return View(model);
         }

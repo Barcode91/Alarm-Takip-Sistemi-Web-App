@@ -1,11 +1,7 @@
-
-
-
 @{
     ViewBag.Title = "title";
     Layout = "_AdminLayout";
 }
-
 <style>
 .menu li{
 list-style: none;
@@ -64,32 +60,28 @@ border-left: 5px solid #ae39e0 ;
         <div class="col-md-10 mt-4">
             <div class="tab-content">
                 <div class="tab-pane active" id="bir-con" role="tabpanel" aria-labelledby="bir">
-                     <div class="row mt-4">
-                                                        <div class="container col-md-6">
-                                                            <h5 class="text-center">ABONELERİN İŞLEM GÖRMÜŞ SİNYAL SAYILARI</h5>
-                                                            <canvas id="islenmisAbone" width="300" height="300"></canvas>
-                                                        </div>
-                                                        <div class="container col-md-6">
-                                                            <h5 class="text-center">ABONELERİN BEKLEYEN SİNYAL SAYILARI</h5>
-                                                            <canvas id="islenmemisAbone" width="300" height="300"></canvas>
-                                                        </div>
-                                                    </div>
+                    <div class="row mt-4">
+                        <div class="container col-md-6">
+                            <h5 class="text-center">ABONELERİN İŞLEM GÖRMÜŞ SİNYAL SAYILARI</h5>
+                            <canvas id="islenmisAbone" width="300" height="300"></canvas>
+                        </div>
+                        <div class="container col-md-6">
+                            <h5 class="text-center">ABONELERİN BEKLEYEN SİNYAL SAYILARI</h5>
+                            <canvas id="islenmemisAbone" width="300" height="300"></canvas>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane" id="iki-con" role="tabpanel" aria-labelledby="iki">
                      <div class="row mt-4">
-                                        <div class="container col-md-6">
-                                            <h5 class="text-center">SİNYAL TÜRLERİNE GÖRE İŞLEM GÖRMÜŞ SİNYALLER</h5>
-                    
-                                            <canvas id="islenmisSinyal" width="300" height="300"></canvas>
-                    
-                                        </div>
-                                        <div class="container col-md-6">
-                                            <h5 class="text-center">SİNYAL TÜRLERİNE GÖRE BEKLEYEN SİNYALLER</h5>
-                                            <canvas id="islenmemisSinyal" width="300" height="300"></canvas>
-                    
-                                        </div>
-                    
-                                    </div>
+                         <div class="container col-md-6">
+                             <h5 class="text-center">SİNYAL TÜRLERİNE GÖRE İŞLEM GÖRMÜŞ SİNYALLER</h5>
+                             <canvas id="islenmisSinyal" width="300" height="300"></canvas>
+                         </div>
+                         <div class="container col-md-6">
+                             <h5 class="text-center">SİNYAL TÜRLERİNE GÖRE BEKLEYEN SİNYALLER</h5>
+                             <canvas id="islenmemisSinyal" width="300" height="300"></canvas>
+                         </div>
+                     </div>
                 </div>
                 <div class="tab-pane" id="uc-con" role="tabpanel" aria-labelledby="uc">
                     <div class="row mt-4 text-center">
@@ -101,27 +93,29 @@ border-left: 5px solid #ae39e0 ;
                 </div>
                 <div class="tab-pane" id="dor-con" role="tabpanel" aria-labelledby="dor">
                     <div class="row mt-4">
-                                    <div class="container col-md-6">
-                                        <h5 class="text-center">SON BİR HAFTADA İŞLEM GÖREN SİNYALLER</h5>
-                                        <canvas id="sonHftislenmis" width="300" height="300"></canvas>
-                                    </div>
-                                    <div class="container col-md-6">
-                                        <h5 class="text-center">SON BİR HAFTADA BEKLEYEN SİNYALLER</h5>
-                                        <canvas id="sonHftBekleyen" width="300" height="300"></canvas>
-                                    </div>
-                                </div>
+                        <div class="container col-md-6">
+                            <h5 class="text-center">SON BİR HAFTADA İŞLEM GÖREN SİNYALLER</h5>
+                            <canvas id="sonHftislenmis" width="300" height="300"></canvas>
+                        </div>
+                        <div class="container col-md-6">
+                            <h5 class="text-center">SON BİR HAFTADA BEKLEYEN SİNYALLER</h5>
+                            <canvas id="sonHftBekleyen" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="tab-pane" id="bes-con" role="tabpanel" aria-labelledby="bes">
-                     <div class="row mt-4">
-                                        <div class="container col-md-6">
-                                            <h5 class="text-center">SON BİR AYDA İŞLEM GÖREN SİNYALLER</h5>
-                                            <canvas id="sonAyislenmis" width="300" height="300"></canvas>
-                                        </div>
-                                        <div class="container col-md-6">
-                                            <h5 class="text-center">SON BİR AYDA BEKLEYEN SİNYALLER</h5>
-                                            <canvas id="sonAyBekleyen" width="300" height="300"></canvas>
-                                        </div>
-                                    </div>
+                    <div class="row mt-4">
+                        <div class="container col-md-6">
+                            <h5 class="text-center">SON BİR AYDA İŞLEM GÖREN SİNYALLER</h5>
+                            <canvas id="sonAyislenmis" width="300" height="300"></canvas>
+                        </div>
+                         <div class="container col-md-6">
+                            <h5 class="text-center">SON BİR AYDA BEKLEYEN SİNYALLER</h5>
+                            <canvas id="sonAyBekleyen" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -161,13 +155,13 @@ var oprsay=@Html.Raw(Json.Serialize(@ViewBag.OPERATORSAY));
 var oprid=@Html.Raw(Json.Serialize(@ViewBag.OPERATORNO));
 
 
-var ctx = document.getElementById('islenmisSinyal');
+var ctx = document.getElementById('islenmemisSinyal');
 var islenmisSinyal = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: sinyalTur,
         datasets: [{
-            label: 'İŞLEM YAPILMIŞ SİNYALLER',
+            label: 'BEKLEYEN SİNYALLER',
             data: sinyalSay,
             backgroundColor: [
                 'rgba(255, 99, 132)',
@@ -189,13 +183,13 @@ var islenmisSinyal = new Chart(ctx, {
         }]
     }
 });
-var ctx1 = document.getElementById('islenmemisSinyal');
+var ctx1 = document.getElementById('islenmisSinyal');
 var islenmemisSinyal = new Chart(ctx1, {
     type: 'bar',
     data: {
         labels: issinyalTur,
         datasets: [{
-            label: 'BEKLEYEN SİNYALLER',
+            label: 'İŞLEM YAPILMIŞ SİNYALLER',
             data: issinyalSay,
             backgroundColor: [
                 'rgba(255, 99, 132)',

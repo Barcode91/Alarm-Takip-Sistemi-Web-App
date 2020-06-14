@@ -35,6 +35,9 @@
           "lib/netstandard1.5/Castle.Core.dll": {}
         }
       },
+      "Chart.js/2.9.3": {
+        "type": "package"
+      },
       "Chart.Mvc.Core/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -2527,6 +2530,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Chart.Mvc.Core": "1.1.0",
+          "Chart.js": "2.9.3",
           "EntityFramework": "6.4.0",
           "FluentNHibernate": "2.1.2",
           "Microsoft.AspNetCore.Mvc.Cors": "2.2.0",
@@ -2630,6 +2634,21 @@
         "lib/netstandard1.5/Castle.Core.dll",
         "lib/netstandard1.5/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "Chart.js/2.9.3": {
+      "sha512": "SY8PuXOJANgsEGMtuXPb/gxazfXdySUuFwTPbQUbw/YKiltR6FJ3mXrLFpr6N2MSCS7oUtfOhTotxLifyJcQNA==",
+      "type": "package",
+      "path": "chart.js/2.9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "chart.js.2.9.3.nupkg.sha512",
+        "chart.js.nuspec",
+        "content/Content/Chart.css",
+        "content/Content/Chart.min.css",
+        "content/Scripts/Chart.js",
+        "content/Scripts/Chart.min.js"
       ]
     },
     "Chart.Mvc.Core/1.1.0": {
